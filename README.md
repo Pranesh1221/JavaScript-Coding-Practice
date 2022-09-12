@@ -8310,3 +8310,24 @@ function find_max(nums) {
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. Create a Promise to accept car names as argument and send response once the argument matches with Maruti?
+
+```js
+async function myCars(name) {
+  const promise = new Promise((resolve, reject) => {
+    name === "Maruti" ? resolve(name) : reject(name);
+  });
+
+  const result = await promise;
+  console.log(result); // "resolved!"
+}
+
+myCars("Maruti");
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-1tmrnp?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
