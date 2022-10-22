@@ -236,7 +236,7 @@ console.log(reverseString("Hello"));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. ***How to check if object is empty or not in javaScript?***
+## Q. ***Check if object is empty or not using javaScript?***
 
 <details><summary><b>Answer<b></summary>
 
@@ -584,7 +584,9 @@ console.log(0.1 + 0.2 == 0.3);
 var arr1 = "john".split("");
 var arr2 = arr1.reverse();
 var arr3 = "jones".split("");
+
 arr2.push(arr3);
+
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); 
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); 
 ```
@@ -715,7 +717,6 @@ var obj = {
 };
 
 obj.method(fn, 1);
-//Output: 10, 2
 ```
 
 <div align="right">
@@ -736,7 +737,6 @@ obj.method(fn, 1);
   console.log(x);
   console.log(y);
 })();
-//Output:  1, undefined, 2
 ```
 
 ## Q. ***Predict the output of the following JavaScript code?***
@@ -772,7 +772,7 @@ function outer() {
   function inner() {
     b++;
     var b = 3;
-    console.log(b); //3
+    console.log(b);
   }
   inner();
 }
@@ -783,7 +783,7 @@ outer();
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. ***Hoisting example in javascript?***
+## Q. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 x = 10;
@@ -822,38 +822,23 @@ console.log(sum(10, 20));
 
 ```javascript
 var arr = ["javascript", "typescript", "es6"];
+
 var searchValue = (value) => {
   return arr.filter((item) => {
     return item.indexOf(value) > -1;
   });
 };
+
 console.log(searchValue("script"));
-```
-
-## Q. ***Write the program using fatarrow function?***
-
-```javascript
-var a = [1, 2, 3, 4];
-function sumUsingFunction(acc, value) {
-  return acc + value;
-}
-var sumOfArrayUsingFunc = a.reduce(sumUsingFunc);
 ```
 
 ## Q. ***Write a program that prints the numbers from 1 to 15. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”?***
 
-```javascript
-for (var i = 1; i <= 15; i++) {
-  if (i % 15 == 0) console.log("FizzBuzz");
-  else if (i % 3 == 0) console.log("Fizz");
-  else if (i % 5 == 0) console.log("Buzz");
-  else console.log(i);
-}
-```
+**Example:**
 
-Output:
-
-```
+```js
+Input: 15
+Output: 
 1
 2
 Fizz
@@ -871,7 +856,20 @@ Fizz
 FizzBuzz
 ```
 
-Solution - 02
+<details><summary><b>Answer<b></summary>
+
+**Solution - 01:**
+
+```javascript
+for (var i = 1; i <= 15; i++) {
+  if (i % 15 == 0) console.log("FizzBuzz");
+  else if (i % 3 == 0) console.log("Fizz");
+  else if (i % 5 == 0) console.log("Buzz");
+  else console.log(i);
+}
+```
+
+**Solution - 02:**
 
 ```javascript
 for (var i = 1; i <= 15; i++) {
@@ -880,6 +878,8 @@ for (var i = 1; i <= 15; i++) {
   console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
 }
 ```
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -896,7 +896,15 @@ var output = (function (x) {
 console.log(output);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will output `0` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **local variable**. `delete` operator doesn't affect local variables.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. ***What will be the output of the following code?***
 
@@ -910,7 +918,11 @@ var output = (function () {
 console.log(output);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will output `1` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **global variable** of type `number`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
