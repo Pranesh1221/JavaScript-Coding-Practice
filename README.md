@@ -23,7 +23,6 @@ Explanation: 10 + 20 = 30
 ```
 
 <details><summary><b>Answer<b></summary>
-<p>
 
 ```javascript
 function sum(x, y) {
@@ -42,14 +41,15 @@ console.log(sum(10)(20));  // Outputs 30
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-1-ypmjhl?file=/src/index.js)**
 
-</p>
 </details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. ***How to validate file size and extension before upload?***
+## Q. ***Validate file size and extension before file upload in JavaScript?***
+
+<details><summary><b>Answer<b></summary>
 
 ```html
 <!DOCTYPE html>
@@ -88,6 +88,8 @@ File Extension: jpg
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-file-upload-fj17kh?file=/index.html)**
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
