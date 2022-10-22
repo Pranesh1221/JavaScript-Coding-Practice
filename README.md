@@ -40,10 +40,10 @@ console.log(sum(10,20));   // Outputs 30
 console.log(sum(10)(20));  // Outputs 30
 ```
 
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-1-ypmjhl?file=/src/index.js)**
+
 </p>
 </details>
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-1-ypmjhl?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
