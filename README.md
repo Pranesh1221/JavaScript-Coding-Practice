@@ -4,9 +4,26 @@
 
 <br/>
 
-## Q. ***Write a program in javascript. sum(2)(3);***
+## Q. ***Write a function to accept argument like `sum(num1)(num2);` or `sum(num1,num2);`***
 
-**Example:** Expected output is 5
+**Example 1:**
+
+```js
+Input: sum(10)(20);
+Output: 30
+Explanation: 10 + 20 = 30
+```
+
+**Example 2:**
+
+```js
+Input: sum(10, 20);
+Output: 30
+Explanation: 10 + 20 = 30
+```
+
+<details><summary><b>Answer<b></summary>
+<p>
 
 ```javascript
 function sum(x, y) {
@@ -19,9 +36,12 @@ function sum(x, y) {
   }
 }
 
-console.log(sum(2,3));   // Outputs 5
-console.log(sum(2)(3));  // Outputs 5
+console.log(sum(10,20));   // Outputs 30
+console.log(sum(10)(20));  // Outputs 30
 ```
+
+</p>
+</details>
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-1-ypmjhl?file=/src/index.js)**
 
