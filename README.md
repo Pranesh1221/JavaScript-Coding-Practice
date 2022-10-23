@@ -386,7 +386,6 @@ console.log(mergeObject(person, address));
 **Example:**
 
 ```js
-// The output of the function should be 8
 Input:
 array = [2, 5, 1, 4, 9, 6, 3, 7];
 upperBound = 9;
