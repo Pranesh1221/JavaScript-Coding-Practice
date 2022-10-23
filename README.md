@@ -263,7 +263,7 @@ myCars("Maruti");
 
 ## Q. Write code for merge two JavaScript Object dynamically?
 
-Let say you have two objects
+**Example:** Let say you have two objects
 
 ```js
 const person = {
@@ -286,6 +286,8 @@ merge(person , address);
 /* Now person should have 5 properties 
 name , age , addressLine1 , addressLine2 , city */
 ```
+
+<details><summary><b>Answer<b></summary>
 
 **Method 1: Using ES6, Object.assign method:**
 
@@ -320,8 +322,11 @@ console.log(mergeObject(person, address));
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-shallow-vs-deep-copy-ik5b7h?file=/src/index.js)**
 
+</details>
 
 ## Q. Being told that an unsorted array contains (n - 1) of n consecutive numbers (where the bounds are defined), find the missing number in O(n) time?
+
+**Example:**
 
 ```js
 // The output of the function should be 8
@@ -330,17 +335,21 @@ var upperBound = 9;
 var lowerBound = 1;
 
 findMissingNumber(arrayOfIntegers, upperBound, lowerBound); // 8
+```
 
+<details><summary><b>Answer<b></summary>
+
+```js
 function findMissingNumber(arrayOfIntegers, upperBound, lowerBound) {
-  // Iterate through array to find the sum of the numbers
+  
   var sumOfIntegers = 0;
   for (var i = 0; i < arrayOfIntegers.length; i++) {
     sumOfIntegers += arrayOfIntegers[i];
   }
 
   // Find theoretical sum of the consecutive numbers using a variation of Gauss Sum.
-  // Formula: [(N * (N + 1)) / 2] - [(M * (M - 1)) / 2];
-  // N is the upper bound and M is the lower bound
+  // Formula: [(Max * (Max + 1)) / 2] - [(Min * (Min - 1)) / 2];
+  // Max is the upper bound and Min is the lower bound
 
   upperLimitSum = (upperBound * (upperBound + 1)) / 2;
   lowerLimitSum = (lowerBound * (lowerBound - 1)) / 2;
@@ -351,27 +360,36 @@ function findMissingNumber(arrayOfIntegers, upperBound, lowerBound) {
 }
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How will you remove duplicates from an array in JavaScript?
+## Q. Write a function to remove duplicates from an array in JavaScript?
 
-**a.) Using set()**  
+<details><summary><b>Answer<b></summary>
+
+**1. Using set():**
+
 ```javascript
 const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
 let unique = [...new Set(names)];
 console.log(unique); // 'John', 'Paul', 'George', 'Ringo'
 ```
-**b.) Using filter()**   
+
+**2. Using filter():**
+
 ```javascript
 const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
 let x = (names) => names.filter((v,i) => names.indexOf(v) === i)
 x(names); // 'John', 'Paul', 'George', 'Ringo'
 ```
-**c.) Using forEach()**  
+
+**3. Using forEach():**  
+
 ```javascript
 const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
@@ -388,38 +406,7 @@ function removeDups(names) {
 removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
 ```
 
-**d.) Using set()** 
-
-```js
-// ES6 Implementation
-var array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
-
-Array.from(new Set(array)); // [1, 2, 3, 5, 9, 8]
-```
-
-**e.) Using Hashmap** 
-
-```js
-// ES5 Implementation
-var array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
-
-uniqueArray(array); // [1, 2, 3, 5, 9, 8]
-
-function uniqueArray(array) {
-  var hashmap = {};
-  var unique = [];
-
-  for(var i = 0; i < array.length; i++) {
-    // If key returns undefined (unique), it is evaluated as false.
-    if(!hashmap.hasOwnProperty(array[i])) {
-      hashmap[array[i]] = 1;
-      unique.push(array[i]);
-    }
-  }
-
-  return unique;
-}
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -427,17 +414,28 @@ function uniqueArray(array) {
 
 ## Q. Given a string, reverse each word in the sentence
 
+**Example:**
+
 ```js
-var string = "Welcome to this Javascript Guide!";
+Input: "Hello World";
+Output: "olleH dlroW";
+```
 
-var reverseEntireSentence = reverseBySeparator(string, "");
+<details><summary><b>Answer<b></summary>
 
-var reverseEachWord = reverseBySeparator(reverseEntireSentence, " ");
+```js
+const str = "Hello World";
+
+let reverseEntireSentence = reverseBySeparator(str, "");
+
+console.log(reverseBySeparator(reverseEntireSentence, " "));
 
 function reverseBySeparator(string, separator) {
   return string.split(separator).reverse().join(separator);
 }
 ```
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -446,6 +444,8 @@ function reverseBySeparator(string, separator) {
 ## Q. Implement enqueue and dequeue using only two stacks
 
 Enqueue means to add an element, dequeue to remove an element.
+
+<details><summary><b>Answer<b></summary>
 
 ```js
 var inputStack = []; // First stack
@@ -471,13 +471,19 @@ function dequeue(stackInput, stackOutput) {
 }
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How would you use a closure to create a private counter?
+## Q. Use a closure to create a private counter?
+
+**Example:**
 
 You can create a function within an outer function (a closure) that allows you to update a private variable but the variable wouldn\'t be accessible from outside the function without the use of a helper function.
+
+<details><summary><b>Answer<b></summary>
 
 ```js
 function counter() {
@@ -502,14 +508,28 @@ c.add(9);
 c.retrieve(); // => The counter is currently at: 14
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How to divide an array in multiple equal parts in JS?
+## Q. Write a function to divide an array into multiple equal parts?
+
+**Example:**
 
 ```js
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+Input: [10, 20, 30, 40, 50];
+Length: 3
+Output: 
+[10, 20, 30]
+[40, 50]
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+const arr = [10, 20, 30, 40, 50];
 let lenth = 3;
 
 function split(len) {
@@ -522,6 +542,8 @@ split(lenth);
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/split-array-5od3rz)**
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -529,6 +551,13 @@ split(lenth);
 ## Q. Write a random integers function to print integers with in a range?
 
 **Example:**
+
+```js
+Input: 1, 100
+Output: 63
+```
+
+<details><summary><b>Answer<b></summary>
 
 ```js
 /**
@@ -544,13 +573,29 @@ randomInteger(1, 100); // returns a random integer from 1 to 100
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-random-integers-yd1cy8?file=/src/index.js)**
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How to convert Decimal to Binary in JavaScript?
+## Q. Write a function to convert decimal number to binary number?
 
-**Example 01:** Convert Decimal to Binary
+**Example 01:**
+
+```js
+Input: 10
+Output: 1010
+```
+
+**Example 02:**
+
+```js
+Input: 7
+Output: 111
+```
+
+<details><summary><b>Answer<b></summary>
 
 ```js
 function DecimalToBinary(number) {
@@ -581,11 +626,22 @@ console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-decimal-to-binary-uhyi8t?file=/src/index.js)**
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. How do you make first letter of the string in an uppercase?
+## Q. Write a function make first letter of the string in an uppercase?
+
+**Example:**
+
+```js
+Input: hello world
+Output: Hello World
+```
+
+<details><summary><b>Answer<b></summary>
 
 You can create a function which uses chain of string methods such as charAt, toUpperCase and slice methods to generate a string with first letter in uppercase.
 
@@ -603,11 +659,29 @@ console.log(capitalizeFirstLetter("hello world")); // Hello World
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-capitalizefirstletter-dpjhky?file=/src/index.js)**
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Write a function which will test string as a literal and as an object?
+
+**Example 01:**
+
+```js
+Input:  const ltrlStr = "Hi I am string literal";
+Output: It is a string literal
+```
+
+**Example 02:**
+
+```js
+Input:  const objStr = new String("Hi I am string object");
+Output: It is an object of string
+```
+
+<details><summary><b>Answer<b></summary>
 
 The `typeof` operator can be use to test string literal and `instanceof` operator to test String object.
 
@@ -633,11 +707,15 @@ console.log(check(objStr)); // It is an object of string
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-literal-vs-object-978dqw?file=/src/index.js)**
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. How do you reversing an array?
+
+<details><summary><b>Answer<b></summary>
 
 You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order. Let us see the usage of reverse() method in an example,
 
@@ -648,17 +726,31 @@ numbers.reverse();
 console.log(numbers); // [1, 2, 3, 4 ,5]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. How do you find min and max value in an array?
 
+**Example:**
+
+```js
+Input: [50, 20, 70, 60, 45, 30];
+Output:
+Min: 20
+Max: 70
+```
+
+<details><summary><b>Answer<b></summary>
+
 You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array. 
 Let us create two functions to find the min and max value with in an array,
 
 ```js
 var marks = [50, 20, 70, 60, 45, 30];
+
 function findMin(arr) {
   return Math.min.apply(null, arr);
 }
@@ -670,16 +762,21 @@ console.log(findMin(marks));
 console.log(findMax(marks));
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. How do you find min and max values without Math functions?
 
+<details><summary><b>Answer<b></summary>
+
 You can write functions which loops through an array comparing each value with the lowest value or highest value to find the min and max values. Let us create those functions to find min an max values,
 
 ```js
 var marks = [50, 20, 70, 60, 45, 30];
+
 function findMin(arr) {
   var length = arr.length
   var min = Infinity;
@@ -706,29 +803,7 @@ console.log(findMin(marks));
 console.log(findMax(marks));
 ```
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Write a script that returns the number of occurrences of character given a string as input?
-
-```javascript
-function countCharacters(str) {
-  return str
-    .replace(/ /g, "")
-    .toLowerCase()
-    .split("")
-    .reduce((arr, character) => {
-      if (character in arr) {
-        arr[character]++;
-      } else {
-        arr[character] = 1;
-      }
-      return arr;
-    }, {});
-}
-console.log(countCharacters("the brown fox jumps over the lazy dog"));
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -755,7 +830,7 @@ console.log(isEmpty(obj));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. JavaScript Regular Expression to validate Email
+## Q. Write a function to validate an email using regular expression?
 
 <details><summary><b>Answer<b></summary>
 
@@ -837,7 +912,9 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. write a script that return the number of occurrences of a character in paragraph
+## Q. Write a function that return the number of occurrences of a character in paragraph?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function charCount(str, searchChar) {
@@ -855,11 +932,15 @@ function charCount(str, searchChar) {
 console.log(charCount("the brown fox jumps over the lazy dog", "o"));
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Recursive and non-recursive Factorial function
+## Q. Write a recursive and non-recursive Factorial function?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function recursiveFactorial(n) {
@@ -892,11 +973,15 @@ function factorial(n) {
 console.log(factorial(5));
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Recursive and non recursive fibonacci-sequence
+## Q. Write a recursive and non recursive fibonacci-sequence?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 // 1, 1, 2, 3, 5, 8, 13, 21, 34
@@ -941,7 +1026,15 @@ function fibonnaci(num, memo = {}) {
 console.log(fibonnaci(5)); // 8
 ```
 
-## Q. Random Number between min and max
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Generate a random Number between min and max?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 // 5 to 7
@@ -950,36 +1043,15 @@ let max = 7;
 console.log(min + Math.floor(Math.random() * (max - min + 1)));
 ```
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Get HTML form values as JSON object
-
-```javascript
-// Use the array reduce function with form elements.
-const formToJSON = (elements) =>
-  [].reduce.call(
-    elements,
-    (data, element) => {
-      data[element.name] = element.value;
-      // Check if name and value exist on element
-      // Check if it checkbox or radio button which can select multiple or single
-      //check for multiple select options
-      return data;
-    },
-    {}
-  );
-
-// pass the elements to above method, to get values
-document.querySelector("HTML_FORM_CLASS").elements;
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Reverse the number
+## Q. Write a function to reverse the number?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function reverse(num) {
@@ -995,47 +1067,15 @@ function reverse(num) {
 console.log(reverse(12345));
 ```
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Remove Duplicate elements from Array
-
-```javascript
-var arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
-function removeDuplicate() {
-  return ar.reduce((prev, current) => {
-    //Cannot use includes of array, since it is not supported by many browser
-    if (prev.indexOf(current) === -1) {
-      prev.push(current);
-    }
-    return prev;
-  }, []);
-}
-console.log(removeDuplicate(ar));
-
-const removeDuplicates = (arr) => {
-  let holder = {};
-  return arr.filter((el) => {
-    if (!holder[el]) {
-      holder[el] = true;
-      return true;
-    }
-    return false;
-  });
-};
-const arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
-console.log(removeDuplicates(arr)); // ["1", "2", "3", "5", "8", "9"] // O(n)
-
-// Es6
-console.log([...new Set(arr)]);
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Deep copy of object or clone of object
+## Q. How to perform deep copy of object or clone of object?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function deepExtend(out = {}) {
@@ -1070,115 +1110,18 @@ console.log(deepExtend({}, { a: 1, b: { c: 2, d: 3 } }, { e: 4, b: { f: 1 } }));
 //output : { a: 1, b: {c: 2, d: 3, f: 1}, e: 4 }
 ```
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Sort ticket based on flying order.
-
-```javascript
-"use strict";
-
-function SortTickets(tickets) {
-  this.tickets = tickets;
-
-  // reverse the order of tickets
-  this.reverseTickets = {};
-  for (let key in this.tickets) {
-    this.reverseTickets[tickets[key]] = key;
-  }
-
-  // Get the starting point of ticket
-  let orderedTivckets = [...this.getStartingPoint()];
-
-  // Get the ticket destination.
-  let currentValue = orderedTickets[orderedTickets.length - 1];
-  while (currentValue) {
-    currentValue = this.tickets[currentValue];
-    if (currentValue) {
-      orderedTickets.push(currentValue);
-    }
-  }
-  console.log(orderedTickets);
-}
-
-SortTickets.prototype.getStartingPoint = function () {
-  for (let tick in this.tickets) {
-    if (!(tick in this.reverseTickets)) {
-      return [tick, this.tickets[tick]];
-    }
-  }
-  return null;
-};
-
-new SortTickets({
-  Athens: "Rio",
-  Barcelona: "Athens",
-  London: "NYC",
-  ND: "Lahore",
-  NYC: "Barcelona",
-  Rio: "ND",
-});
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Cuncurrent execute function based on input number
+## Q. Write a function to reverse an array?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
-function concurrent(num) {
-  this.queue = [];
-  this.num = num;
-}
-
-concurrent.prototype.enqueue = function (value) {
-  this.queue.push(value);
-};
-
-concurrent.prototype.start = function () {
-  this.runningCount = 0;
-  while (this.queue.length > 0) {
-    if (this.runningCount < this.num) {
-      this.queue.pop().call(this, () => {
-        this.runningCount--;
-        let count = this.runningCount;
-        if (count === 0) {
-          this.start();
-        }
-      });
-      this.runningCount++;
-    }
-  }
-};
-
-let callback = (done) => {
-  console.log("starting");
-  setTimeout(() => {
-    console.log("stopped");
-    done();
-  }, 200);
-};
-
-let c = new concurrent(2);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.start();
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Reversing an array
-
-```javascript
-let a = [1, 2, 3, 4, 5];
+let a = [10, 20, 30, 40, 50];
 
 //Approach 1:
 console.log(a.reverse());
@@ -1192,7 +1135,31 @@ let reverse = a.reduce((prev, current) => {
 console.log(reverse);
 ```
 
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Rotate 2D array
+
+**Example:**
+
+```js
+Input:
+[1, 2, 3, 4],
+[5, 6, 7, 8],
+[9, 10, 11, 12]
+
+
+Output:
+[1, 5, 9]
+[2, 6, 10]
+[3, 7, 11]
+[4, 8, 12]
+```
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 const transpose = (arr) => arr[0].map((col, i) => arr.map((row) => row[i]));
@@ -1206,7 +1173,15 @@ console.log(
 );
 ```
 
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Get Column from 2D Array
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 const getColumn = (arr, n) => arr.map((x) => x[n]);
@@ -1220,7 +1195,15 @@ const twoDimensionalArray = [
 console.log(getColumn(twoDimensionalArray, 1)); //Result = [2,5,8]
 ```
 
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Get top N from array
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function topN(arr, num) {
@@ -1231,11 +1214,15 @@ function topN(arr, num) {
 console.log(topN([1, 8, 3, 4, 5], 2)); // [5,8]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Get query params from Object
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function getQueryParams(obj) {
@@ -1260,11 +1247,15 @@ console.log(
 );
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Consecutive 1\'s in binary
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function consecutiveOne(num) {
@@ -1287,11 +1278,15 @@ function consecutiveOne(num) {
 console.log(consecutiveOne(5)); //1
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Spiral travesal of matrix
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 var input = [
@@ -1334,11 +1329,15 @@ var spiralTraversal = function (matriks) {
 console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Merge Sorted array and sort it.
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function mergeSortedArray(arr1, arr2) {
@@ -1348,11 +1347,15 @@ function mergeSortedArray(arr1, arr2) {
 console.log(mergeSortedArray([1, 2, 3, 4, 5, 6], [0, 3, 4, 7])); // [0, 1, 2, 3, 4, 5, 6, 7]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Anagram of words
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 const alphabetize = (word) => word.split("").sort().join("");
@@ -1380,11 +1383,15 @@ console.log(
 // }
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Print the largest (maximum) hourglass sum found in 2d array.
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 // if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
@@ -1410,11 +1417,15 @@ function main(arr) {
 }
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Transform array of object to array
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 let data = [
@@ -1444,11 +1455,15 @@ console.log(Object.keys(newData).map((key) => newData[key]));
 // }]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Create a private variable or private method in object
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 let obj = (function () {
@@ -1469,11 +1484,15 @@ console.log("p" in obj); // false
 obj.callPrivateFunction(); // this is private function
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Flatten only Array not objects
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function flatten(arr, result = []) {
@@ -1524,11 +1543,15 @@ var list2 = [0, [1, [2, [3, [4, [5]]]]]];
 console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Find max difference between two number in Array
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function maxDifference(arr) {
@@ -1546,19 +1569,31 @@ function maxDifference(arr) {
 console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
 ```
 
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. swap two number in ES6 [destructing]
 
+<details><summary><b>Answer<b></summary>
+
 ```javascript
-let a = 10,
-  b = 5;
+let a = 10, b = 5;
+
 [a, b] = [b, a];
 ```
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Panagram ? it means all the 26 letters of alphabet are there
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function panagram(input) {
@@ -1584,11 +1619,15 @@ processData("We promptly judged antique ivory buckles for the next prize"); // p
 processData("We promptly judged antique ivory buckles for the prize"); // Not Pangram
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function indexOf(arrLike, target) {
@@ -1619,11 +1658,15 @@ const target = rootA.querySelector(".person__age");
 console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Convert a number into a Roman Numeral
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function romanize(num) {
@@ -1655,11 +1698,15 @@ function romanize(num) {
 console.log(romanize(3)); // III
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. check if parenthesis is malformed or not
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function matchParenthesis(str) {
@@ -1687,11 +1734,15 @@ function matchParenthesis(str) {
 console.log(matchParenthesis("}{{}}"), matchParenthesis("{{[]}}")); // false - true
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Create Custom Event Emitter class
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 class EventEmitter {
@@ -1725,24 +1776,15 @@ e.on("callme", function (args) {
 e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
 ```
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Max value from an array
-
-```javascript
-const arr = [-2, -3, 4, 3, 2, 1];
-Math.max(...arr); // Fastest
-
-Math.max.apply(Math, arr); // Slow
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Move all zero\'s to end
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 const moveZeroToEnd = (arr) => {
@@ -1760,11 +1802,15 @@ const moveZeroToEnd = (arr) => {
 console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0])); // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Decode message in matrix [diagional down right, diagional up right]
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 const decodeMessage = (mat) => {
@@ -1809,11 +1855,15 @@ let mat = [
 console.log(decodeMessage(mat)); //IROELEA
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. find a pair in array, whose sum is equal to given number.
+## Q. find a pair in array, whose sum is equal to given number?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 const hasPairSum = (arr, sum) => {
@@ -1860,11 +1910,15 @@ console.log(hasPairSum([6, 4, 3, 8], 8));
 // then see if that value exist in difference then return true.
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Binary Search [Array should be sorted]
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function binarySearch(arr, val) {
@@ -1888,11 +1942,15 @@ console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 22));
 console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27));
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
 ## Q. Write a function to generate Pascal triangle?
+
+<details><summary><b>Answer<b></summary>
 
 ```javascript
 function pascalTriangle(n) {
@@ -1909,6 +1967,8 @@ function pascalTriangle(n) {
 
 console.log(pascalTriangle(2));
 ```
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
