@@ -387,11 +387,13 @@ console.log(mergeObject(person, address));
 
 ```js
 // The output of the function should be 8
-var arrayOfIntegers = [2, 5, 1, 4, 9, 6, 3, 7];
-var upperBound = 9;
-var lowerBound = 1;
+Input:
+array = [2, 5, 1, 4, 9, 6, 3, 7];
+upperBound = 9;
+lowerBound = 1;
 
-findMissingNumber(arrayOfIntegers, upperBound, lowerBound); // 8
+Output:
+8
 ```
 
 <details><summary><b>Answer<b></summary>
