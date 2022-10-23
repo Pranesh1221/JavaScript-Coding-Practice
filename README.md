@@ -2803,7 +2803,7 @@ console.log(strA);
 
 <details><summary><b>Answer<b></summary>
 
-The output will `'hi there'` because we're dealing with strings here. Strings are
+The output will `'hi there'` because we\'re dealing with strings here. Strings are
 passed by value, that is, copied.
 
 </details>
@@ -2823,7 +2823,7 @@ console.log(objA);
 
 <details><summary><b>Answer<b></summary>
 
-The output will `{prop1: 90}` because we're dealing with objects here. Objects are
+The output will `{prop1: 90}` because we\'re dealing with objects here. Objects are
 passed by reference, that is, `objA` and `objB` point to the same object in memory.
 
 </details>
@@ -5072,7 +5072,7 @@ There is no value `radius` on that object, which returns `undefined`.
 
 The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
 
-The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+The string `'Lydia'` is a truthy value. What we\'re actually asking, is "is this truthy value falsy?". This returns `false`.
 
 </details>
 
@@ -5103,7 +5103,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 `mouse[bird.size]`: First it evaluates `bird.size`, which is `"small"`. `mouse["small"]` returns `true`
 
-However, with dot notation, this doesn\'t happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn\'t valid, and will throw an error similar to `Cannot read property "size" of undefined`.
+However, with dot notation, this doesn\'t happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we\'re actually asking `undefined.size`. This isn\'t valid, and will throw an error similar to `Cannot read property "size" of undefined`.
 
 </details>
 
@@ -5559,7 +5559,7 @@ console.log(num);
 **Answer:**
 
 With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
-You cannot do this with `let` or `const` since they're block-scoped.
+You cannot do this with `let` or `const` since they\'re block-scoped.
 
 </details>
 
@@ -6134,7 +6134,7 @@ for (const item in person) {
 
 <details><summary><b>Answer<b></summary>
 
-With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they\'re not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
 
 </details>
 
@@ -6219,7 +6219,7 @@ console.log(person, birthYear);
 
 <details><summary><b>Answer<b></summary>
 
-Arguments are passed by _value_, unless their value is an object, then they're passed by _reference_. `birthYear` is passed by value, since it\'s a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
+Arguments are passed by _value_, unless their value is an object, then they\'re passed by _reference_. `birthYear` is passed by value, since it\'s a string, not an object. When we pass arguments by value, a _copy_ of that value is created (see question 46).
 
 The variable `birthYear` has a reference to the value `"1997"`. The argument `year` also has a reference to the value `"1997"`, but it\'s not the same value as `birthYear` has a reference to. When we update the value of `year` by setting `year` equal to `"1998"`, we are only updating the value of `year`. `birthYear` is still equal to `"1997"`.
 
@@ -6306,7 +6306,7 @@ let x = y;
 
 When we set `y` equal to `10`, we actually add a property `y` to the global object (`window` in browser, `global` in Node). In a browser, `window.y` is now equal to `10`.
 
-Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they're declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it\'s declared in. This means that `x` is not defined. Values who haven\'t been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
+Then, we declare a variable `x` with the value of `y`, which is `10`. Variables declared with the `let` keyword are _block scoped_, they are only defined within the block they\'re declared in; the immediately-invoked function (IIFE) in this case. When we use the `typeof` operator, the operand `x` is not defined: we are trying to access `x` outside of the block it\'s declared in. This means that `x` is not defined. Values who haven\'t been assigned a value or declared are of type `"undefined"`. `console.log(typeof x)` returns `"undefined"`.
 
 However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
 
@@ -6486,16 +6486,13 @@ console.log(person);
 console.log(Object.keys(person));
 ```
 
-- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
-- B: `{ name: "Lydia", age: 21 }`, `["name"]`
-- C: `{ name: "Lydia"}`, `["name", "age"]`
-- D: `{ name: "Lydia"}`, `["age"]`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you\'re adding to an object.
+
+<\details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6525,7 +6522,7 @@ The second argument of `JSON.stringify` is the _replacer_. The replacer can eith
 
 If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
 
-If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it\'s added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
+If the replacer is a _function_, this function gets called on every property in the object you\'re stringifying. The value returned from this function will be the value of the property when it\'s added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6774,7 +6771,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 function* startGame() {
   const answer = yield "Do you love JavaScript?";
   if (answer !== "Yes") {
-    return "Oh wow... Guess we're gone here";
+    return "Oh wow... Guess we\'re gone here";
   }
   return "JavaScript loves you back ❤️";
 }
@@ -7164,9 +7161,9 @@ When logging the `person` object, the unmodified object gets returned.
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young.";
+    const message = "Sorry, you\'re too young.";
   } else {
-    const message = "Yay! You're old enough!";
+    const message = "Yay! You\'re old enough!";
   }
 
   return message;
@@ -7175,8 +7172,8 @@ function checkAge(age) {
 console.log(checkAge(21));
 ```
 
-- A: `"Sorry, you're too young."`
-- B: `"Yay! You're old enough!"`
+- A: `"Sorry, you\'re too young."`
+- B: `"Yay! You\'re old enough!"`
 - C: `ReferenceError`
 - D: `undefined`
 
@@ -7276,7 +7273,7 @@ sum(10);
 
 You can set a default parameter\'s value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.
 
-If you're trying to set a default parameter\'s value equal to a parameter which is defined _after_ (to the right), the parameter\'s value hasn\'t been initialized yet, which will throw an error.
+If you\'re trying to set a default parameter\'s value equal to a parameter which is defined _after_ (to the right), the parameter\'s value hasn\'t been initialized yet, which will throw an error.
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7607,10 +7604,10 @@ console.log(name());
 
 The variable `name` holds the value of a string, which is not a function, thus cannot invoke.
 
-TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we\'re trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
 
 SyntaxErrors get thrown when you've written something that isn\'t valid JavaScript, for example when you've written the word `return` as `retrun`.
-ReferenceErrors get thrown when JavaScript isn\'t able to find a reference to a value that you're trying to access.
+ReferenceErrors get thrown when JavaScript isn\'t able to find a reference to a value that you\'re trying to access.
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7786,7 +7783,7 @@ compareMembers(person);
 
 **Answer: B**
 
-Objects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references.
+Objects are passed by reference. When we check objects for strict equality (`===`), we\'re comparing their references.
 
 We set the default value for `person2` equal to the `person` object, and passed the `person` object as the value for `person1`.
 
@@ -7842,7 +7839,7 @@ console.log("❤️" === "❤️");
 
 **Answer: A**
 
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true.
+Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we\'re comparing two equal strings to each other, which returns true.
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7896,7 +7893,7 @@ console.log(food);
 
 We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference
 
-In JavaScript, primitive data types (everything that\'s not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)
+In JavaScript, primitive data types (everything that\'s not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you\'re interested in learning more)
 
 Then, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn\'t changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn\'t have a reference to the same spot in memory as the element on `food[0]`. When we log food, it\'s still the original array, `['🍕', '🍫', '🥑', '🍔']`.
 
@@ -7957,7 +7954,7 @@ getName();
 
 **Answer: D**
 
-Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'sarah'`.
+Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we\'re trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'sarah'`.
 
 Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don\'t get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
@@ -8094,7 +8091,7 @@ myMap.get(() => "greeting");
 When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`.
 
 1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
-3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory.
+3 is wrong, since we\'re creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory.
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
