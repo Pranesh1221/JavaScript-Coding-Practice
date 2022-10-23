@@ -2110,6 +2110,36 @@ const getObjectProperty = (object, path) => {
 ## Q. Predict the output of the following JS code?
 
 ```js
+const arr = [10, 20, 30];
+arr.push(40);  
+console.log(arr)
+
+const arr1 = [10, 20, 30];
+arr1 = []; 
+console.log(arr1) 
+
+const arr2 = [10, 20, 30];
+arr2[2] = 50; 
+console.log(arr2) 
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+[10, 20, 30, 40]
+Error
+[10, 20, 50]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 var a = 1;
 
 function b(){
