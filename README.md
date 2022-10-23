@@ -706,6 +706,30 @@ console.log(findMax(marks));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a script that returns the number of occurrences of character given a string as input?
+
+```javascript
+function countCharacters(str) {
+  return str
+    .replace(/ /g, "")
+    .toLowerCase()
+    .split("")
+    .reduce((arr, character) => {
+      if (character in arr) {
+        arr[character]++;
+      } else {
+        arr[character] = 1;
+      }
+      return arr;
+    }, {});
+}
+console.log(countCharacters("the brown fox jumps over the lazy dog"));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Check if object is empty or not using javaScript?
 
 <details><summary><b>Answer<b></summary>
@@ -780,6 +804,1107 @@ PASS
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-password-strength-cxl8xy)**
 
 </details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a script that returns the number of occurrences of character given a string as input
+
+<details><summary><b>Answer<b></summary>
+
+```javascript
+function countCharacters(str) {
+  return str.replace(/ /g, "").toLowerCase().split("").reduce((p, c) => {
+      if (c in p) {
+        p[c]++;
+      } else {
+        p[c] = 1;
+      }
+      return p;
+    }, {});
+}
+console.log(countCharacters("the brown fox jumps over the lazy dog"));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. write a script that return the number of occurrences of a character in paragraph
+
+```javascript
+function charCount(str, searchChar) {
+  let count = 0;
+  if (str) {
+    let stripStr = str.replace(/ /g, "").toLowerCase(); //remove spaces and covert to lowercase
+    for (let chr of stripStr) {
+      if (chr === searchChar) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+console.log(charCount("the brown fox jumps over the lazy dog", "o"));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Recursive and non-recursive Factorial function
+
+```javascript
+function recursiveFactorial(n) {
+  if (n < 1) {
+    throw Error("Value of N has to be greater then 1");
+  }
+  if (n === 1) {
+    return 1;
+  } else {
+    return n * recursiveFactorial(n - 1);
+  }
+}
+
+console.log(recursiveFactorial(5));
+
+function factorial(n) {
+  if (n < 1) {
+    throw Error("Value of N has to be greater then 1");
+  }
+  if (n === 1) {
+    return 1;
+  }
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result = result * i;
+  }
+  return result;
+}
+
+console.log(factorial(5));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Recursive and non recursive fibonacci-sequence
+
+```javascript
+// 1, 1, 2, 3, 5, 8, 13, 21, 34
+
+function recursiveFibonacci(num) {
+  if (num <= 1) {
+    return 1;
+  } else {
+    return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
+  }
+}
+
+console.log(recursiveFibonacci(8));
+
+function fibonnaci(num) {
+  let a = 1,
+    b = 0,
+    temp;
+  while (num >= 0) {
+    temp = a;
+    a = a + b;
+    b = temp;
+    num--;
+  }
+  return b;
+}
+
+console.log(fibonnaci(7));
+
+// Memoization fibonnaci
+
+function fibonnaci(num, memo = {}) {
+  if (num in memo) {
+    return memo[num];
+  }
+  if (num <= 1) {
+    return 1;
+  }
+  return (memo[num] = fibonnaci(num - 1, memo) + fibonnaci(num - 2, memo));
+}
+
+console.log(fibonnaci(5)); // 8
+```
+
+## Q. Random Number between min and max
+
+```javascript
+// 5 to 7
+let min = 5;
+let max = 7;
+console.log(min + Math.floor(Math.random() * (max - min + 1)));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Get HTML form values as JSON object
+
+```javascript
+// Use the array reduce function with form elements.
+const formToJSON = (elements) =>
+  [].reduce.call(
+    elements,
+    (data, element) => {
+      data[element.name] = element.value;
+      // Check if name and value exist on element
+      // Check if it checkbox or radio button which can select multiple or single
+      //check for multiple select options
+      return data;
+    },
+    {}
+  );
+
+// pass the elements to above method, to get values
+document.querySelector("HTML_FORM_CLASS").elements;
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Reverse the number
+
+```javascript
+function reverse(num) {
+  let result = 0;
+  while (num != 0) {
+    result = result * 10;
+    result = result + (num % 10);
+    num = Math.floor(num / 10);
+  }
+  return result;
+}
+
+console.log(reverse(12345));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Remove Duplicate elements from Array
+
+```javascript
+var arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
+function removeDuplicate() {
+  return ar.reduce((prev, current) => {
+    //Cannot use includes of array, since it is not supported by many browser
+    if (prev.indexOf(current) === -1) {
+      prev.push(current);
+    }
+    return prev;
+  }, []);
+}
+console.log(removeDuplicate(ar));
+
+const removeDuplicates = (arr) => {
+  let holder = {};
+  return arr.filter((el) => {
+    if (!holder[el]) {
+      holder[el] = true;
+      return true;
+    }
+    return false;
+  });
+};
+const arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
+console.log(removeDuplicates(arr)); // ["1", "2", "3", "5", "8", "9"] // O(n)
+
+// Es6
+console.log([...new Set(arr)]);
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Deep copy of object or clone of object
+
+```javascript
+function deepExtend(out = {}) {
+  for (let i = 1; i < arguments.length; i++) {
+    let obj = arguments[i];
+    if (obj == null)
+      // skip undefined and null [check with double equal not triple]
+      continue;
+
+    obj = Object(obj);
+
+    for (let key in obj) {
+      // avoid shadow hasownproperty of parent
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        if (
+          typeof obj[key] === "object" &&
+          !Array.isArray(obj[key]) &&
+          obj[key] != null
+        )
+          out[key] = deepExtend(out[key], obj[key]);
+        else out[key] = obj[key];
+      }
+    }
+  }
+  return out;
+}
+
+//Alternative if there are no function
+let cloneObj = JSON.parse(JSON.stringify(obj));
+
+console.log(deepExtend({}, { a: 1, b: { c: 2, d: 3 } }, { e: 4, b: { f: 1 } }));
+//output : { a: 1, b: {c: 2, d: 3, f: 1}, e: 4 }
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Sort ticket based on flying order.
+
+```javascript
+"use strict";
+
+function SortTickets(tickets) {
+  this.tickets = tickets;
+
+  // reverse the order of tickets
+  this.reverseTickets = {};
+  for (let key in this.tickets) {
+    this.reverseTickets[tickets[key]] = key;
+  }
+
+  // Get the starting point of ticket
+  let orderedTivckets = [...this.getStartingPoint()];
+
+  // Get the ticket destination.
+  let currentValue = orderedTickets[orderedTickets.length - 1];
+  while (currentValue) {
+    currentValue = this.tickets[currentValue];
+    if (currentValue) {
+      orderedTickets.push(currentValue);
+    }
+  }
+  console.log(orderedTickets);
+}
+
+SortTickets.prototype.getStartingPoint = function () {
+  for (let tick in this.tickets) {
+    if (!(tick in this.reverseTickets)) {
+      return [tick, this.tickets[tick]];
+    }
+  }
+  return null;
+};
+
+new SortTickets({
+  Athens: "Rio",
+  Barcelona: "Athens",
+  London: "NYC",
+  ND: "Lahore",
+  NYC: "Barcelona",
+  Rio: "ND",
+});
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Cuncurrent execute function based on input number
+
+```javascript
+function concurrent(num) {
+  this.queue = [];
+  this.num = num;
+}
+
+concurrent.prototype.enqueue = function (value) {
+  this.queue.push(value);
+};
+
+concurrent.prototype.start = function () {
+  this.runningCount = 0;
+  while (this.queue.length > 0) {
+    if (this.runningCount < this.num) {
+      this.queue.pop().call(this, () => {
+        this.runningCount--;
+        let count = this.runningCount;
+        if (count === 0) {
+          this.start();
+        }
+      });
+      this.runningCount++;
+    }
+  }
+};
+
+let callback = (done) => {
+  console.log("starting");
+  setTimeout(() => {
+    console.log("stopped");
+    done();
+  }, 200);
+};
+
+let c = new concurrent(2);
+c.enqueue(callback);
+c.enqueue(callback);
+c.enqueue(callback);
+c.enqueue(callback);
+c.enqueue(callback);
+c.enqueue(callback);
+c.start();
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Reversing an array
+
+```javascript
+let a = [1, 2, 3, 4, 5];
+
+//Approach 1:
+console.log(a.reverse());
+
+//Approach 2:
+let reverse = a.reduce((prev, current) => {
+  prev.unshift(current);
+  return prev;
+}, []);
+
+console.log(reverse);
+```
+
+## Q. Rotate 2D array
+
+```javascript
+const transpose = (arr) => arr[0].map((col, i) => arr.map((row) => row[i]));
+
+console.log(
+  transpose([
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+  ])
+);
+```
+
+## Q. Get Column from 2D Array
+
+```javascript
+const getColumn = (arr, n) => arr.map((x) => x[n]);
+
+const twoDimensionalArray = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+console.log(getColumn(twoDimensionalArray, 1)); //Result = [2,5,8]
+```
+
+## Q. Get top N from array
+
+```javascript
+function topN(arr, num) {
+  let sorted = arr.sort((a, b) => a - b);
+  return sorted.slice(sorted.length - num, sorted.length);
+}
+
+console.log(topN([1, 8, 3, 4, 5], 2)); // [5,8]
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Get query params from Object
+
+```javascript
+function getQueryParams(obj) {
+  let parms = "";
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (parms.length > 0) {
+        parms += "&";
+      }
+      parms += encodeURI(`${key}=${obj[key]}`);
+    }
+  }
+  return parms;
+}
+
+console.log(
+  getQueryParams({
+    name: "Umesh",
+    tel: "48289",
+    add: "3333 emearld st",
+  })
+);
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Consecutive 1's in binary
+
+```javascript
+function consecutiveOne(num) {
+  let binaryArray = num.toString(2);
+
+  let maxOccurence = 0,
+    occurence = 0;
+  for (let val of binaryArray) {
+    if (val === "1") {
+      occurence += 1;
+      maxOccurence = Math.max(maxOccurence, occurence);
+    } else {
+      occurence = 0;
+    }
+  }
+  return maxOccurence;
+}
+//13 = 1101 = 2
+//5 = 101 = 1
+console.log(consecutiveOne(5)); //1
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Spiral travesal of matrix
+
+```javascript
+var input = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16],
+];
+
+var spiralTraversal = function (matriks) {
+  let result = [];
+  var goAround = function (matrix) {
+    if (matrix.length === 0) {
+      return;
+    }
+
+    // right
+    result = result.concat(matrix.shift());
+
+    // down
+    for (var j = 0; j < matrix.length - 1; j++) {
+      result.push(matrix[j].pop());
+    }
+
+    // bottom
+    result = result.concat(matrix.pop().reverse());
+
+    // up
+    for (var k = matrix.length - 1; k > 0; k--) {
+      result.push(matrix[k].shift());
+    }
+
+    return goAround(matrix);
+  };
+
+  goAround(matriks);
+
+  return result;
+};
+console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Merge Sorted array and sort it.
+
+```javascript
+function mergeSortedArray(arr1, arr2) {
+  return [...new Set(arr1.concat(arr2))].sort((a, b) => a - b);
+}
+
+console.log(mergeSortedArray([1, 2, 3, 4, 5, 6], [0, 3, 4, 7])); // [0, 1, 2, 3, 4, 5, 6, 7]
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Anagram of words
+
+```javascript
+const alphabetize = (word) => word.split("").sort().join("");
+
+function groupAnagram(wordsArr) {
+  return wordsArr.reduce((p, c) => {
+    const sortedWord = alphabetize(c);
+    if (sortedWord in p) {
+      p[sortedWord].push(c);
+    } else {
+      p[sortedWord] = [c];
+    }
+    return p;
+  }, {});
+}
+
+console.log(
+  groupAnagram(["map", "art", "how", "rat", "tar", "who", "pam", "shoop"])
+);
+// result : {
+//  amp: ["map", "pam"],
+//  art: ["art", "rat", "tar"],
+//  hoops: ["shoop"],
+//  how: ["how", "who"]
+// }
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Print the largest (maximum) hourglass sum found in 2d array.
+
+```javascript
+// if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
+// if arr 8 X 8 then iterate it till 6 X 6  [reduce by two]
+function main(arr) {
+  let maxScore = -999;
+  let len = arr.length;
+  for (let i = 0; i < len - 2; i++) {
+    for (let j = 0; j < len - 2; j++) {
+      let total =
+        arr[i][j] +
+        arr[i][j + 1] +
+        arr[i][j + 2] +
+        arr[i + 1][j + 1] +
+        arr[i + 2][j] +
+        arr[i + 2][j + 1] +
+        arr[i + 2][j + 2];
+
+      maxScore = Math.max(maxScore, total);
+    }
+  }
+  console.log(maxScore);
+}
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Transform array of object to array
+
+```javascript
+let data = [
+  { vid: "aaa", san: 12 },
+  { vid: "aaa", san: 18 },
+  { vid: "aaa", san: 2 },
+  { vid: "bbb", san: 33 },
+  { vid: "bbb", san: 44 },
+  { vid: "aaa", san: 100 },
+];
+
+let newData = data.reduce((acc, item) => {
+  acc[item.vid] = acc[item.vid] || { vid: item.vid, san: [] };
+  acc[item.vid]["san"].push(item.san);
+  return acc;
+}, {});
+
+console.log(Object.keys(newData).map((key) => newData[key]));
+
+// Result
+// [[object Object] {
+//   san: [12, 18, 2, 100],
+//   vid: "aaa"
+// }, [object Object] {
+//   san: [33, 44],
+//   vid: "bbb"
+// }]
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Create a private variable or private method in object
+
+```javascript
+let obj = (function () {
+  function getPrivateFunction() {
+    console.log("this is private function");
+  }
+  let p = "You are accessing private variable";
+  return {
+    getPrivateProperty: () => {
+      console.log(p);
+    },
+    callPrivateFunction: getPrivateFunction,
+  };
+})();
+
+obj.getPrivateValue(); // You are accessing private variable
+console.log("p" in obj); // false
+obj.callPrivateFunction(); // this is private function
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Flatten only Array not objects
+
+```javascript
+function flatten(arr, result = []) {
+  arr.forEach((val) => {
+    if (Array.isArray(val)) {
+      flatten(val, result);
+    } else {
+      result.push(val);
+    }
+  });
+  return result;
+}
+
+let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
+console.log(flatten(input)); // [1, { a: [2, [3]]}, 4, 5, 6, 7, "hi", 8, 9, 10]
+
+function flattenIterative(out) {
+  // iteratively
+  let result = out;
+  while (result.some(Array.isArray)) {
+    result = [].concat.apply([], result);
+  }
+  return result;
+}
+var list1 = [
+  [0, 1],
+  [2, 3],
+  [4, 5],
+];
+console.log(flattenIterative(list1)); // [0, 1, 2, 3, 4, 5]
+
+function flattenIterative1(current) {
+  let result = [];
+  while (current.length) {
+    let firstValue = current.shift();
+    if (Array.isArray(firstValue)) {
+      current = firstValue.concat(current);
+    } else {
+      result.push(firstValue);
+    }
+  }
+  return result;
+}
+
+let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
+console.log(flattenIterative1(input));
+var list2 = [0, [1, [2, [3, [4, [5]]]]]];
+console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Find max difference between two number in Array
+
+```javascript
+function maxDifference(arr) {
+  let maxDiff = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      let diff = Math.abs(arr[i] - arr[j]);
+      maxDiff = Math.max(maxDiff, diff);
+    }
+  }
+  return maxDiff;
+}
+
+console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
+```
+
+## Q. swap two number in ES6 [destructing]
+
+```javascript
+let a = 10,
+  b = 5;
+[a, b] = [b, a];
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Panagram ? it means all the 26 letters of alphabet are there
+
+```javascript
+function panagram(input) {
+  if (input == null) {
+    // Check for null and undefined
+    return false;
+  }
+
+  if (input.length < 26) {
+    // if length is less then 26 then it is not
+    return false;
+  }
+  input = input.replace(/ /g, "").toLowerCase().split("");
+  let obj = input.reduce((prev, current) => {
+    if (!(current in prev)) {
+      prev[current] = current;
+    }
+    return prev;
+  }, {});
+  console.log(Object.keys(obj).length === 26 ? "panagram" : "not pangram");
+}
+processData("We promptly judged antique ivory buckles for the next prize"); // pangram
+processData("We promptly judged antique ivory buckles for the prize"); // Not Pangram
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
+
+```javascript
+function indexOf(arrLike, target) {
+  return Array.prototype.indexOf.call(arrLike, target);
+}
+
+// Given a node and a tree, extract the nodes path
+function getPath(root, target) {
+  var current = target;
+  var path = [];
+  while (current !== root) {
+    let parentNode = current.parentNode;
+    path.unshift(indexOf(parentNode.childNodes, current));
+    current = parentNode;
+  }
+  return path;
+}
+
+// Given a tree and a path, let's locate a node
+function locateNodeFromPath(node, path) {
+  return path.reduce((root, index) => root.childNodes[index], node);
+}
+
+const rootA = document.querySelector("#root-a");
+const rootB = document.querySelector("#root-b");
+const target = rootA.querySelector(".person__age");
+
+console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Convert a number into a Roman Numeral
+
+```javascript
+function romanize(num) {
+  let lookup = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1,
+    },
+    roman = "";
+  for (let i in lookup) {
+    while (num >= lookup[i]) {
+      roman += i;
+      num -= lookup[i];
+    }
+  }
+  return roman;
+}
+
+console.log(romanize(3)); // III
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. check if parenthesis is malformed or not
+
+```javascript
+function matchParenthesis(str) {
+  let obj = { "{": "}", "(": ")", "[": "]" };
+  let result = [];
+  for (let s of str) {
+    if (s === "{" || s === "(" || s === "[") {
+      // All opening brackets
+      result.push(s);
+    } else {
+      if (result.length > 0) {
+        let lastValue = result.pop(); //pop the last value and compare with key
+        if (obj[lastValue] !== s) {
+          // if it is not same then it is not formated properly
+          return false;
+        }
+      } else {
+        return false; // empty array, there is nothing to pop. so it is not formated properly
+      }
+    }
+  }
+  return result.length === 0;
+}
+
+console.log(matchParenthesis("}{{}}"), matchParenthesis("{{[]}}")); // false - true
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Create Custom Event Emitter class
+
+```javascript
+class EventEmitter {
+  constructor() {
+    this.holder = {};
+  }
+
+  on(eventName, fn) {
+    if (eventName && typeof fn === "function") {
+      this.holder[eventName] = this.holder[eventName] || [];
+      this.holder[eventName].push(fn);
+    }
+  }
+
+  emit(eventName, ...args) {
+    let eventColl = this.holder[eventName];
+    if (eventColl) {
+      eventColl.forEach((callback) => callback(args));
+    }
+  }
+}
+
+let e = new EventEmitter();
+e.on("callme", function (args) {
+  console.log(`you called me ${args}`);
+});
+e.on("callme", function (args) {
+  console.log(`testing`);
+});
+
+e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Max value from an array
+
+```javascript
+const arr = [-2, -3, 4, 3, 2, 1];
+Math.max(...arr); // Fastest
+
+Math.max.apply(Math, arr); // Slow
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Move all zero's to end
+
+```javascript
+const moveZeroToEnd = (arr) => {
+  for (let i = 0, j = 0; j < arr.length; j++) {
+    if (arr[j] !== 0) {
+      if (i < j) {
+        [arr[i], arr[j]] = [arr[j], arr[i]]; // swap i and j
+      }
+      i++;
+    }
+  }
+  return arr;
+};
+
+console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0])); // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Decode message in matrix [diagional down right, diagional up right]
+
+```javascript
+const decodeMessage = (mat) => {
+  // check if matrix is null or empty
+  if (mat == null || mat.length === 0) {
+    return "";
+  }
+  let x = mat.length - 1;
+  let y = mat[0].length - 1;
+  let message = "";
+  let decode = (mat, i = 0, j = 0, direction = "DOWN") => {
+    message += mat[i][j];
+
+    if (i === x) {
+      direction = "UP";
+    }
+
+    if (direction === "DOWN") {
+      i++;
+    } else {
+      i--;
+    }
+
+    if (j === y) {
+      return;
+    }
+
+    j++;
+    decode(mat, i, j, direction);
+  };
+  decode(mat);
+  return message;
+};
+
+let mat = [
+  ["I", "B", "C", "A", "L", "K", "A"],
+  ["D", "R", "F", "C", "A", "E", "A"],
+  ["G", "H", "O", "E", "L", "A", "D"],
+  ["G", "H", "O", "E", "L", "A", "D"],
+];
+
+console.log(decodeMessage(mat)); //IROELEA
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. find a pair in array, whose sum is equal to given number.
+
+```javascript
+const hasPairSum = (arr, sum) => {
+  if (arr == null && arr.length < 2) {
+    return false;
+  }
+
+  let left = 0;
+  let right = arr.length - 1;
+  let result = false;
+
+  while (left < right && !result) {
+    let pairSum = arr[left] + arr[right];
+    if (pairSum < sum) {
+      left++;
+    } else if (pairSum > sum) {
+      right--;
+    } else {
+      result = true;
+    }
+  }
+  return result;
+};
+
+console.log(hasPairSum([1, 2, 4, 5], 8)); // null
+console.log(hasPairSum([1, 2, 4, 4], 8)); // [2,3]
+
+const hasPairSum = (arr, sum) => {
+  let difference = {};
+  let hasPair = false;
+  arr.forEach((item) => {
+    let diff = sum - item;
+    if (!difference[diff]) {
+      difference[item] = true;
+    } else {
+      hasPair = true;
+    }
+  });
+  return hasPair;
+};
+console.log(hasPairSum([6, 4, 3, 8], 8));
+
+// NOTE: if array is not sorted then subtract the value with sum and store in difference
+// then see if that value exist in difference then return true.
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Binary Search [Array should be sorted]
+
+```javascript
+function binarySearch(arr, val) {
+  let startIndex = 0,
+    stopIndex = arr.length - 1,
+    middleIndex = Math.floor((startIndex + stopIndex) / 2);
+
+  while (arr[middleIndex] !== val && startIndex < stopIndex) {
+    if (val < arr[middleIndex]) {
+      stopIndex = middleIndex - 1;
+    } else if (val > arr[middleIndex]) {
+      startIndex = middleIndex + 1;
+    }
+    middleIndex = Math.floor((startIndex + stopIndex) / 2);
+  }
+
+  return arr[middleIndex] === val ? middleIndex : -1;
+}
+
+console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 22));
+console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27));
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to generate Pascal triangle?
+
+```javascript
+function pascalTriangle(n) {
+  let last = [1],
+    triangle = [last];
+  for (let i = 0; i < n; i++) {
+    const ls = [0].concat(last), //[0,1]           // [0,1,1]
+      rs = last.concat([0]); //[1,0]           // [1,1,0]
+    last = rs.map((r, i) => ls[i] + r); //[1, 1]          // [1,2,1]
+    triangle = triangle.concat([last]); // [[1], [1,1]]   // [1], [1, 1], [1, 2, 1]
+  }
+  return triangle;
+}
+
+console.log(pascalTriangle(2));
+```
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2524,12 +3649,16 @@ _Answer:_ 1 6 -1
 })();
 ```
 
-1.  [ 2, 4, 8, 12, 16 ] [ 0, 3, 0, 0, 9, 0, 12]
-2.  [ 2, 4, 8, 12, 16 ] [ 3, 9, 12]
-3.  [ 2, 4, 8, 12, 16 ] true
-4.  [ 2, 4, 8, 12, 16 ] false
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 3) [ 2, 4, 8, 12, 16 ] true
+_Answer:_ [ 2, 4, 8, 12, 16 ] true
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 
 ## Q. What would be the output of following code?
 
@@ -2547,27 +3676,15 @@ _Answer:_ 3) [ 2, 4, 8, 12, 16 ] true
 })();
 ```
 
-1. [ 2, '12', true ]
-   [ 2, '12', true ]
-   [ 2, '12', true ]
-   [ 2, '12', true ]
-2. [false, true]
-   [ 2 ]
-   ['12']
-   [ ]
-3. [2,0,false,"", '12', true]
-   [2,0,false,"", '12', true]
-   [2,0,false,"", '12', true]
-   [2,0,false,"", '12', true]
-4. [ 2, '12', true ]
-   [ 2, '12', true, false ]
-   [ 2, '12', true,false ]
-   [ 2, '12', true,false]
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) [ 2, '12', true ]
+_Answer:_  
 [ 2, '12', true ]
 [ 2, '12', true ]
 [ 2, '12', true ]
+[ 2, '12', true ]
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2586,32 +3703,20 @@ _Answer:_ 1) [ 2, '12', true ]
 })();
 ```
 
-1. [ 'bar', 'john', 'ritz' ]
-   [ 'bar', 'john' ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-2. [ 'bar', 'john', 'ritz' ]
-   [ 'bar', 'john','ritz ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-3. [ 'john', 'ritz' ]
-   [ 'bar', 'john' ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-4. [ 'foo' ]
-   [ 'bar', 'john' ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) [ 'bar', 'john', 'ritz' ]
+_Answer:_ 
+[ 'bar', 'john', 'ritz' ]
 [ 'bar', 'john' ]
 [ 'foo', 'bar', 'john', 'ritz' ]
 []
 [ 'foo', 'bar', 'john', 'ritz' ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2624,12 +3729,11 @@ _Answer:_ 1) [ 'bar', 'john', 'ritz' ]
 })();
 ```
 
-1.  [ 'bar', 'john' ] [] [ 'foo' ]
-2.  [ 'bar', 'john' ] [] [ 'bar', 'john' ]
-3.  [ 'bar', 'john' ] [ 'bar', 'john' ] [ 'bar', 'john' ]
-4.  [ 'bar', 'john' ] [] []
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1. [ 'bar', 'john' ] [] [ 'foo' ]
+_Answer:_ [ 'bar', 'john' ] [] [ 'foo' ]
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2645,12 +3749,15 @@ _Answer:_ 1. [ 'bar', 'john' ] [] [ 'foo' ]
 })();
 ```
 
-1.  [2, 8, 15, 16, 23, 42]
-2.  [42, 23, 26, 15, 8, 2]
-3.  [ 15, 16, 2, 23, 42, 8 ]
-4.  [ 2, 8, 15, 16, 23, 42 ]
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 3. [ 15, 16, 2, 23, 42, 8 ]
+_Answer:_ [ 15, 16, 2, 23, 42, 8 ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2668,14 +3775,14 @@ function funcA() {
 console.log(funcA());
 ```
 
-1.  funcA Window {...}
-    innerFunc1 Window {...}
-    innerFunA11 Window {...}
-2.  undefined
-3.  Type Error
-4.  ReferenceError: this is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1)
+_Answer:_ 
+funcA  
+innerFunc1 
+innerFunA11 
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2694,12 +3801,15 @@ var obj = {
 console.log(obj.innerMessage);
 ```
 
-1.  ReferenceError: this.message is not defined
-2.  undefined
-3.  Type Error
-4.  undefined true
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 4) undefined true
+_Answer:_ undefined true
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2714,12 +3824,11 @@ var obj = {
 console.log(obj.innerMessage());
 ```
 
-1.  Hello
-2.  undefined
-3.  Type Error
-4.  ReferenceError: this.message is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) Hello
+_Answer:_ Hello
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2739,12 +3848,15 @@ var obj = {
 console.log(obj.innerMessage());
 ```
 
-1.  Type Error
-2.  Hello
-3.  undefined
-4.  ReferenceError: this.message is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 3) undefined
+_Answer:_ undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2761,12 +3873,11 @@ var obj = {
 console.log(obj.innerMessage());
 ```
 
-1.  Type Error
-2.  'Hello'
-3.  undefined
-4.  ReferenceError: self.message is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) 'Hello'
+_Answer:_ 'Hello'
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2783,12 +3894,15 @@ myFunc.message = "Hi John";
 console.log(myFunc());
 ```
 
-1.  Type Error
-2.  'Hi John'
-3.  undefined
-4.  ReferenceError: this.message is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 3) undefined
+_Answer:_ undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2801,12 +3915,11 @@ myFunc.message = "Hi John";
 console.log(myFunc());
 ```
 
-1.  Type Error
-2.  'Hi John'
-3.  undefined
-4.  ReferenceError: this.message is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) 'Hi John'
+_Answer:_ 'Hi John'
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2822,12 +3935,15 @@ function myFunc() {
 console.log(myFunc());
 ```
 
-1.  Type Error
-2.  'Hi John'
-3.  undefined
-4.  ReferenceError: this.message is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) 'Hi John'
+_Answer:_ 'Hi John'
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2840,12 +3956,11 @@ console.log(myFunc("a", "b"));
 console.log(myFunc("a", "b", "c", "d"));
 ```
 
-1.  2 2 2
-2.  0 2 4
-3.  undefined
-4.  ReferenceError
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ a) 2 2 2
+_Answer:_ 2 2 2
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2862,12 +3977,16 @@ console.log(myFunc("a", "b"));
 console.log(myFunc("a", "b", "c", "d"));
 ```
 
-1.  2 2 2
-2.  0 2 4
-3.  undefined
-4.  ReferenceError
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) 0 2 4
+_Answer:_  0 2 4
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 
 ## Q. What would be the output of following code?
 
@@ -2890,12 +4009,11 @@ person1.displayName();
 Person.displayName();
 ```
 
-1.  John Person
-2.  John John
-3.  John undefined
-4.  John John
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) John Person
+_Answer:_ John Person
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2917,12 +4035,15 @@ console.log(userInfo.pwd);
 console.log(userInfo.userName);
 ```
 
-1.  12345678 Window
-2.  12345678 John
-3.  12345678 undefined
-4.  undefined undefined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 3) 12345678 undefined
+_Answer:_ 12345678 undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2934,12 +4055,11 @@ function Employee() {
 console.log(Employee.employeeId);
 ```
 
-1.  Reference Error
-2.  aq123
-3.  bq1uy
-4.  undefined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 4) undefined
+_Answer:_ undefined
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -2960,12 +4080,15 @@ console.log(new Employee().JobId);
 console.log(new Employee().employeeId);
 ```
 
-1.  bq1uy 1BJKSJ bq1uy undefined
-2.  bq1uy 1BJKSJ bq1uy
-3.  bq1uy 1BJKSJ kj182
-4.  undefined 1BJKSJ kj182
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) bq1uy 1BJKSJ bq1uy
+_Answer:_ bq1uy 1BJKSJ bq1uy
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -2981,12 +4104,11 @@ var employeeId = "aq123";
 })();
 ```
 
-1.  foo123 aq123
-2.  foo123 foo123
-3.  aq123 aq123
-4.  foo123 undefined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) foo123 aq123
+_Answer:_ foo123 aq123
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3004,12 +4126,15 @@ _Answer:_ 1) foo123 aq123
 })();
 ```
 
-1.  Hello World
-2.  undefined
-3.  World
-4.  [ 'W', 'o', 'r', 'l', 'd' ]
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 4) [ 'W', 'o', 'r', 'l', 'd' ]
+_Answer:_ [ 'W', 'o', 'r', 'l', 'd' ]
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -3035,12 +4160,11 @@ _Answer:_ 4) [ 'W', 'o', 'r', 'l', 'd' ]
 })();
 ```
 
-1. Total amount left in account: 5600 Total amount left in account: 5300
-2. undefined undefined
-3. Total amount left in account: 3600 Total amount left in account: 3300
-4. Total amount left in account: 5600 Total amount left in account: 5600
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) Total amount left in account: 5600 Total amount left in account: 5300
+_Answer:_ Total amount left in account: 5600 Total amount left in account: 5300
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3071,12 +4195,11 @@ _Answer:_ 1) Total amount left in account: 5600 Total amount left in account: 53
 })();
 ```
 
-1. 5600 5300 5100
-2. 3600 3300 3100
-3. 5600 3300 5100
-4. undefined undefined undefined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) 5600 5300 5100
+_Answer:_ 5600 5300 5100
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3107,12 +4230,11 @@ _Answer:_ 1) 5600 5300 5100
 })();
 ```
 
-1. 5600 5300 5100
-2. 3600 3300 3100
-3. 5600 3300 5100
-4. undefined undefined undefined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) 3600 3300 3100
+_Answer:_ 3600 3300 3100
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3128,12 +4250,15 @@ _Answer:_ 2) 3600 3300 3100
 })());
 ```
 
-1. Hello John
-2. Reference Error
-3. Window
-4. undefined
+<details><summary><b>Answer<b></summary>
 
 _Answer:_ 1) Hello John
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -3152,12 +4277,11 @@ getDataFromServer("www.google.com").then(function (name) {
 });
 ```
 
-1. John
-2. undefined
-3. Reference Error
-4. fn is not defined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) John
+_Answer:_ John
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3196,18 +4320,14 @@ _Answer:_ 1) John
 })();
 ```
 
-1. [ 2, 8, 15, 16, 23, 42 ]
-   [ 2, 8, 15, 16, 23, 42 ]
-   [ 2, 8, 15, 16, 23, 42 ]
-2. undefined undefined undefined
-3. [42, 23, 16, 15, 8, 2]
-   [42, 23, 16, 15, 8, 2]
-   [42, 23, 16, 15, 8, 2]
-4. Reference Error
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) [ 2, 8, 15, 16, 23, 42 ]
+_Answer:_ 
 [ 2, 8, 15, 16, 23, 42 ]
 [ 2, 8, 15, 16, 23, 42 ]
+[ 2, 8, 15, 16, 23, 42 ]
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3228,12 +4348,15 @@ _Answer:_ 1) [ 2, 8, 15, 16, 23, 42 ]
 })();
 ```
 
-1. Hi John
-2. undefined
-3. Reference Error
-4. Uncaught TypeError: Cannot read property 'fullName' of undefined
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
+_Answer:_ Uncaught TypeError: Cannot read property 'fullName' of undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -3246,12 +4369,11 @@ var numb = getNumber();
 console.log(numb);
 ```
 
-1. 5
-2. undefined
-3. 2
-4. (2,4,5)
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) 5
+_Answer:_ 5
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3268,12 +4390,15 @@ var numb = getNumber();
 console.log(numb);
 ```
 
-1. null
-2. undefined
-3. ""
-4. 0
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 2) undefined
+_Answer:_ undefined
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -3293,12 +4418,11 @@ console.log(mul(2)(3)[0]);
 console.log(mul(2)(3)[1](4));
 ```
 
-1. 6, 10
-2. undefined undefined
-3. Reference Error
-4. 10, 6
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) 6, 10
+_Answer:_ 6, 10
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3321,12 +4445,15 @@ console.log(mul(2)(3).result);
 console.log(mul(2)(3).sum(4));
 ```
 
-1. 6, 10
-2. undefined undefined
-3. Reference Error
-4. 10, 6
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) 6, 10
+_Answer:_ 6, 10
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the output of following code?
 
@@ -3345,12 +4472,11 @@ function mul(x) {
 console.log(mul(2)(3)(4)(5)(6));
 ```
 
-1. 720
-2. undefined
-3. Reference Error
-4. Type Error
+<details><summary><b>Answer<b></summary>
 
-_Answer:_ 1) 720
+_Answer:_ 720
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3362,7 +4488,15 @@ _Answer:_ 1) 720
 var foo = 10 + "20";
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ `'1020'`, because of type coercion from Number to String
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. How would you make this work?
 
@@ -3370,6 +4504,8 @@ _Answer:_ `'1020'`, because of type coercion from Number to String
 add(2, 5); // 7
 add(2)(5); // 7
 ```
+
+<details><summary><b>Answer<b></summary>
 
 _Answer:_ A general solution for any number of parameters
 
@@ -3396,6 +4532,8 @@ add()(2)(5); // 7
 add()()(2)(5); // 7
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -3406,7 +4544,15 @@ add()()(2)(5); // 7
 "i'm a lasagna hog".split("").reverse().join("");
 ```
 
-_Answer:_ It's actually a reverse method for a string - `'goh angasal a m\'i'`
+<details><summary><b>Answer<b></summary>
+
+_Answer:_ It\'s actually a reverse method for a string - `'goh angasal a m\'i'`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the value of `window.foo`?
 
@@ -3414,7 +4560,15 @@ _Answer:_ It's actually a reverse method for a string - `'goh angasal a m\'i'`
 window.foo || (window.foo = "bar");
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ Always `'bar'`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the outcome of the two alerts below?
 
@@ -3427,10 +4581,14 @@ var foo = "Hello";
 alert(foo + bar);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_
 
 - First: `Hello World`
 - Second: Throws an exception, `ReferenceError: bar is not defined`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3444,7 +4602,15 @@ foo.push(1);
 foo.push(2);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ `.push` is mutable - `2`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is the value of `foo.x`?
 
@@ -3454,6 +4620,8 @@ var bar = foo;
 foo.x = foo = { n: 2 };
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ `undefined`. Rather, `bar.x` is `{n: 2}`.
 
 `foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
@@ -3461,6 +4629,8 @@ a left term is first referenced and then a right term is evaluated when an
 assignment is performed in JavaScript. When `foo.x` is referenced, it refers
 to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3476,32 +4646,24 @@ setTimeout(function () {
 console.log("three");
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ `one`, `three` and `two`. It's because `console.log('two');` will be
 invoked in the next event loop.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What would be the result of 1+2+'3'?
 
+<details><summary><b>Answer<b></summary>
+
 The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
 
-## Q. Write a script that returns the number of occurrences of character given a string as input?
-
-```javascript
-function countCharacters(str) {
-  return str
-    .replace(/ /g, "")
-    .toLowerCase()
-    .split("")
-    .reduce((arr, character) => {
-      if (character in arr) {
-        arr[character]++;
-      } else {
-        arr[character] = 1;
-      }
-      return arr;
-    }, {});
-}
-console.log(countCharacters("the brown fox jumps over the lazy dog"));
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -3513,122 +4675,15 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
 var foo = 10 + "20";
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ `'1020'`, because of type coercion from Number to String
 
-## Q. How would you make this work?
-
-```javascript
-add(2, 5); // 7
-add(2)(5); // 7
-```
-
-_Answer:_ A general solution for any number of parameters
-
-```js
-"use strict";
-
-let sum = (arr) => arr.reduce((a, b) => a + b);
-let addGenerator = (numArgs, prevArgs) => {
-  return function () {
-    let totalArgs = prevArgs.concat(Array.from(arguments));
-    if (totalArgs.length === numArgs) {
-      return sum(totalArgs);
-    }
-    return addGenerator(numArgs, totalArgs);
-  };
-};
-
-let add = addGenerator(2, []);
-
-add(2, 5); // 7
-add(2)(5); // 7
-add()(2, 5); // 7
-add()(2)(5); // 7
-add()()(2)(5); // 7
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
-
-## Q. What value is returned from the following statement?
-
-```javascript
-"i'm a lasagna hog".split("").reverse().join("");
-```
-
-_Answer:_ It's actually a reverse method for a string - `'goh angasal a m\'i'`
-
-## Q. What is the value of `window.foo`?
-
-```javascript
-window.foo || (window.foo = "bar");
-```
-
-_Answer:_ Always `'bar'`
-
-## Q. What is the outcome of the two alerts below?
-
-```javascript
-var foo = "Hello";
-(function () {
-  var bar = " World";
-  alert(foo + bar);
-})();
-alert(foo + bar);
-```
-
-_Answer:_
-
-- First: `Hello World`
-- Second: Throws an exception, `ReferenceError: bar is not defined`
-
-## Q. What is the value of `foo.length`?
-
-```javascript
-var foo = [];
-foo.push(1);
-foo.push(2);
-```
-
-_Answer:_ `.push` is mutable - `2`
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the value of `foo.x`?
-
-```javascript
-var foo = { n: 1 };
-var bar = foo;
-foo.x = foo = { n: 2 };
-```
-
-_Answer:_ `undefined`. Rather, `bar.x` is `{n: 2}`.
-
-`foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
-a left term is first referenced and then a right term is evaluated when an
-assignment is performed in JavaScript. When `foo.x` is referenced, it refers
-to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
-moment referenced by `bar`.
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What does the following code print?
-
-```javascript
-console.log("one");
-setTimeout(function () {
-  console.log("two");
-}, 0);
-console.log("three");
-```
-
-_Answer:_ `one`, `three` and `two`. It's because `console.log('two');` will be
-invoked in the next event loop.
 
 ## Q. For which value of x the results of the following statements are not the same?
 
@@ -3637,9 +4692,17 @@ invoked in the next event loop.
 if( !(x > 100) ) {...}
 ```
 
+<details><summary><b>Answer<b></summary>
+
 _Answer:_ `NaN <= 100` is `false` and `NaN > 100` is also false, so if the value of `x` is `NaN`, the statements are not the same.
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}`, etc.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. What is g value?
 
@@ -3779,24 +4842,6 @@ console.log(emp1.company);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Make this work:
-
-```javascript
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
-```
-
-```javascript
-function duplicate(arr) {
-  return arr.concat(arr);
-}
-
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
 ## Q. Fix the bug using ES5 only?
 
 ```javascript
@@ -3807,6 +4852,8 @@ for (var i = 0; i < arr.length; i++) {
   }, 3000);
 }
 ```
+
+<details><summary><b>Answer<b></summary>
 
 For ES6, you can just replace `var i` with `let i`.
 
@@ -3826,6 +4873,8 @@ for (var i = 0; i < arr.length; i++) {
 }
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -3833,15 +4882,15 @@ for (var i = 0; i < arr.length; i++) {
 ## Q. What will be the output of the following code?
 
 ```javascript
-console.log(eval("10 + 10")); // 20
+console.log(eval("10 + 10")); 
 
-console.log(eval("5 + 5" + 10)); // 515
+console.log(eval("5 + 5" + 10)); 
 
-console.log(eval("5 + 5 + 5" + 10)); // 520
+console.log(eval("5 + 5 + 5" + 10)); 
 
-console.log(eval(10 + "5 + 5")); // 110
+console.log(eval(10 + "5 + 5")); 
 
-console.log(eval(10 + "5 + 5 + 5")); // 115
+console.log(eval(10 + "5 + 5 + 5")); 
 ```
 
 ## Q. What will be the output of the following code?
@@ -3854,7 +4903,7 @@ var b = eval("2 + 2") + "<br>";
 var c = eval("x + 30") + "<br>";
 
 let result = a + b + c;
-console.log(result); // 200<br>4<br>40<br>
+console.log(result); 
 ```
 
 <div align="right">
@@ -3898,1224 +4947,7 @@ console.log([...country]);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Given and object and property path. Get value from property path
-
-```javascript
-function getPropertyValue(TEMP_OBJECT, path) {
-  return path.split('.').reduce((prev, key) => {
-      return prev ? prev[key] : undefined;
-    }, TEMP_OBJECT)
-}
-
-//Input :
-let srcObject = {
-    'system' : {
-        'database' : {
-              '0' : {
-                'host' : '54.232.122',
-                'port' : 3306
-             },
-              '1' : {
-                'host' : '54.232.123',
-             },
-             'port' : 3307
-              '2' : {
-                'host' : '54.232.123',
-             }
-       }
-   }
-},
-path = "system.database.1.port";
-
-//Output: 3307
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. How to filter object from Arrays of Objects
-
-```javascript
-let filteredArray = [{name: 'john'},{name: 'kelly'}].filter(value => value.name === 'kelly');
-
-Filter method return Array of objects
-```
-
-## Q. How to replace all the occurrences of string
-
-```javascript
-str = str.replace(/test/g, "");
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Write a script that returns the number of occurrences of character given a string as input
-
-```javascript
-function countCharacters(str) {
-  return str
-    .replace(/ /g, "")
-    .toLowerCase()
-    .split("")
-    .reduce((p, c) => {
-      if (c in p) {
-        p[c]++;
-      } else {
-        p[c] = 1;
-      }
-      return p;
-    }, {});
-}
-console.log(countCharacters("the brown fox jumps over the lazy dog"));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. write a script that return the number of occurrences of a character in paragraph
-
-```javascript
-function charCount(str, searchChar) {
-  let count = 0;
-  if (str) {
-    let stripStr = str.replace(/ /g, "").toLowerCase(); //remove spaces and covert to lowercase
-    for (let chr of stripStr) {
-      if (chr === searchChar) {
-        count++;
-      }
-    }
-  }
-  return count;
-}
-console.log(charCount("the brown fox jumps over the lazy dog", "o"));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Recursive and non-recursive Factorial function
-
-```javascript
-function recursiveFactorial(n) {
-  if (n < 1) {
-    throw Error("Value of N has to be greater then 1");
-  }
-  if (n === 1) {
-    return 1;
-  } else {
-    return n * recursiveFactorial(n - 1);
-  }
-}
-
-console.log(recursiveFactorial(5));
-
-function factorial(n) {
-  if (n < 1) {
-    throw Error("Value of N has to be greater then 1");
-  }
-  if (n === 1) {
-    return 1;
-  }
-  let result = 1;
-  for (let i = 1; i <= n; i++) {
-    result = result * i;
-  }
-  return result;
-}
-
-console.log(factorial(5));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Recursive and non recursive fibonacci-sequence
-
-```javascript
-// 1, 1, 2, 3, 5, 8, 13, 21, 34
-
-function recursiveFibonacci(num) {
-  if (num <= 1) {
-    return 1;
-  } else {
-    return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
-  }
-}
-
-console.log(recursiveFibonacci(8));
-
-function fibonnaci(num) {
-  let a = 1,
-    b = 0,
-    temp;
-  while (num >= 0) {
-    temp = a;
-    a = a + b;
-    b = temp;
-    num--;
-  }
-  return b;
-}
-
-console.log(fibonnaci(7));
-
-// Memoization fibonnaci
-
-function fibonnaci(num, memo = {}) {
-  if (num in memo) {
-    return memo[num];
-  }
-  if (num <= 1) {
-    return 1;
-  }
-  return (memo[num] = fibonnaci(num - 1, memo) + fibonnaci(num - 2, memo));
-}
-
-console.log(fibonnaci(5)); // 8
-```
-
-## Q. Random Number between min and max
-
-```javascript
-// 5 to 7
-let min = 5;
-let max = 7;
-console.log(min + Math.floor(Math.random() * (max - min + 1)));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Get HTML form values as JSON object
-
-```javascript
-// Use the array reduce function with form elements.
-const formToJSON = (elements) =>
-  [].reduce.call(
-    elements,
-    (data, element) => {
-      data[element.name] = element.value;
-      // Check if name and value exist on element
-      // Check if it checkbox or radio button which can select multiple or single
-      //check for multiple select options
-      return data;
-    },
-    {}
-  );
-
-// pass the elements to above method, to get values
-document.querySelector("HTML_FORM_CLASS").elements;
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Reverse the number
-
-```javascript
-function reverse(num) {
-  let result = 0;
-  while (num != 0) {
-    result = result * 10;
-    result = result + (num % 10);
-    num = Math.floor(num / 10);
-  }
-  return result;
-}
-
-console.log(reverse(12345));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Remove Duplicate elements from Array
-
-```javascript
-var arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
-function removeDuplicate() {
-  return ar.reduce((prev, current) => {
-    //Cannot use includes of array, since it is not supported by many browser
-    if (prev.indexOf(current) === -1) {
-      prev.push(current);
-    }
-    return prev;
-  }, []);
-}
-console.log(removeDuplicate(ar));
-
-const removeDuplicates = (arr) => {
-  let holder = {};
-  return arr.filter((el) => {
-    if (!holder[el]) {
-      holder[el] = true;
-      return true;
-    }
-    return false;
-  });
-};
-const arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
-console.log(removeDuplicates(arr)); // ["1", "2", "3", "5", "8", "9"] // O(n)
-
-// Es6
-console.log([...new Set(arr)]);
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Deep copy of object or clone of object
-
-```javascript
-function deepExtend(out = {}) {
-  for (let i = 1; i < arguments.length; i++) {
-    let obj = arguments[i];
-    if (obj == null)
-      // skip undefined and null [check with double equal not triple]
-      continue;
-
-    obj = Object(obj);
-
-    for (let key in obj) {
-      // avoid shadow hasownproperty of parent
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        if (
-          typeof obj[key] === "object" &&
-          !Array.isArray(obj[key]) &&
-          obj[key] != null
-        )
-          out[key] = deepExtend(out[key], obj[key]);
-        else out[key] = obj[key];
-      }
-    }
-  }
-  return out;
-}
-
-//Alternative if there are no function
-let cloneObj = JSON.parse(JSON.stringify(obj));
-
-console.log(deepExtend({}, { a: 1, b: { c: 2, d: 3 } }, { e: 4, b: { f: 1 } }));
-//output : { a: 1, b: {c: 2, d: 3, f: 1}, e: 4 }
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Sort ticket based on flying order.
-
-```javascript
-"use strict";
-
-function SortTickets(tickets) {
-  this.tickets = tickets;
-
-  // reverse the order of tickets
-  this.reverseTickets = {};
-  for (let key in this.tickets) {
-    this.reverseTickets[tickets[key]] = key;
-  }
-
-  // Get the starting point of ticket
-  let orderedTivckets = [...this.getStartingPoint()];
-
-  // Get the ticket destination.
-  let currentValue = orderedTickets[orderedTickets.length - 1];
-  while (currentValue) {
-    currentValue = this.tickets[currentValue];
-    if (currentValue) {
-      orderedTickets.push(currentValue);
-    }
-  }
-  console.log(orderedTickets);
-}
-
-SortTickets.prototype.getStartingPoint = function () {
-  for (let tick in this.tickets) {
-    if (!(tick in this.reverseTickets)) {
-      return [tick, this.tickets[tick]];
-    }
-  }
-  return null;
-};
-
-new SortTickets({
-  Athens: "Rio",
-  Barcelona: "Athens",
-  London: "NYC",
-  ND: "Lahore",
-  NYC: "Barcelona",
-  Rio: "ND",
-});
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Cuncurrent execute function based on input number
-
-```javascript
-function concurrent(num) {
-  this.queue = [];
-  this.num = num;
-}
-
-concurrent.prototype.enqueue = function (value) {
-  this.queue.push(value);
-};
-
-concurrent.prototype.start = function () {
-  this.runningCount = 0;
-  while (this.queue.length > 0) {
-    if (this.runningCount < this.num) {
-      this.queue.pop().call(this, () => {
-        this.runningCount--;
-        let count = this.runningCount;
-        if (count === 0) {
-          this.start();
-        }
-      });
-      this.runningCount++;
-    }
-  }
-};
-
-let callback = (done) => {
-  console.log("starting");
-  setTimeout(() => {
-    console.log("stopped");
-    done();
-  }, 200);
-};
-
-let c = new concurrent(2);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.enqueue(callback);
-c.start();
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Reversing an array
-
-```javascript
-let a = [1, 2, 3, 4, 5];
-
-//Approach 1:
-console.log(a.reverse());
-
-//Approach 2:
-let reverse = a.reduce((prev, current) => {
-  prev.unshift(current);
-  return prev;
-}, []);
-
-console.log(reverse);
-```
-
-## Q. Rotate 2D array
-
-```javascript
-const transpose = (arr) => arr[0].map((col, i) => arr.map((row) => row[i]));
-
-console.log(
-  transpose([
-    [1, 2, 3, 4],
-    [5, 6, 7, 8],
-    [9, 10, 11, 12],
-  ])
-);
-```
-
-## Q. Get Column from 2D Array
-
-```javascript
-const getColumn = (arr, n) => arr.map((x) => x[n]);
-
-const twoDimensionalArray = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-
-console.log(getColumn(twoDimensionalArray, 1)); //Result = [2,5,8]
-```
-
-## Q. Get top N from array
-
-```javascript
-function topN(arr, num) {
-  let sorted = arr.sort((a, b) => a - b);
-  return sorted.slice(sorted.length - num, sorted.length);
-}
-
-console.log(topN([1, 8, 3, 4, 5], 2)); // [5,8]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Get query params from Object
-
-```javascript
-function getQueryParams(obj) {
-  let parms = "";
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      if (parms.length > 0) {
-        parms += "&";
-      }
-      parms += encodeURI(`${key}=${obj[key]}`);
-    }
-  }
-  return parms;
-}
-
-console.log(
-  getQueryParams({
-    name: "Umesh",
-    tel: "48289",
-    add: "3333 emearld st",
-  })
-);
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Consecutive 1's in binary
-
-```javascript
-function consecutiveOne(num) {
-  let binaryArray = num.toString(2);
-
-  let maxOccurence = 0,
-    occurence = 0;
-  for (let val of binaryArray) {
-    if (val === "1") {
-      occurence += 1;
-      maxOccurence = Math.max(maxOccurence, occurence);
-    } else {
-      occurence = 0;
-    }
-  }
-  return maxOccurence;
-}
-//13 = 1101 = 2
-//5 = 101 = 1
-console.log(consecutiveOne(5)); //1
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Spiral travesal of matrix
-
-```javascript
-var input = [
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9, 10, 11, 12],
-  [13, 14, 15, 16],
-];
-
-var spiralTraversal = function (matriks) {
-  let result = [];
-  var goAround = function (matrix) {
-    if (matrix.length === 0) {
-      return;
-    }
-
-    // right
-    result = result.concat(matrix.shift());
-
-    // down
-    for (var j = 0; j < matrix.length - 1; j++) {
-      result.push(matrix[j].pop());
-    }
-
-    // bottom
-    result = result.concat(matrix.pop().reverse());
-
-    // up
-    for (var k = matrix.length - 1; k > 0; k--) {
-      result.push(matrix[k].shift());
-    }
-
-    return goAround(matrix);
-  };
-
-  goAround(matriks);
-
-  return result;
-};
-console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Merge Sorted array and sort it.
-
-```javascript
-function mergeSortedArray(arr1, arr2) {
-  return [...new Set(arr1.concat(arr2))].sort((a, b) => a - b);
-}
-
-console.log(mergeSortedArray([1, 2, 3, 4, 5, 6], [0, 3, 4, 7])); // [0, 1, 2, 3, 4, 5, 6, 7]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Anagram of words
-
-```javascript
-const alphabetize = (word) => word.split("").sort().join("");
-
-function groupAnagram(wordsArr) {
-  return wordsArr.reduce((p, c) => {
-    const sortedWord = alphabetize(c);
-    if (sortedWord in p) {
-      p[sortedWord].push(c);
-    } else {
-      p[sortedWord] = [c];
-    }
-    return p;
-  }, {});
-}
-
-console.log(
-  groupAnagram(["map", "art", "how", "rat", "tar", "who", "pam", "shoop"])
-);
-// result : {
-//  amp: ["map", "pam"],
-//  art: ["art", "rat", "tar"],
-//  hoops: ["shoop"],
-//  how: ["how", "who"]
-// }
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Print the largest (maximum) hourglass sum found in 2d array.
-
-```javascript
-// if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
-// if arr 8 X 8 then iterate it till 6 X 6  [reduce by two]
-function main(arr) {
-  let maxScore = -999;
-  let len = arr.length;
-  for (let i = 0; i < len - 2; i++) {
-    for (let j = 0; j < len - 2; j++) {
-      let total =
-        arr[i][j] +
-        arr[i][j + 1] +
-        arr[i][j + 2] +
-        arr[i + 1][j + 1] +
-        arr[i + 2][j] +
-        arr[i + 2][j + 1] +
-        arr[i + 2][j + 2];
-
-      maxScore = Math.max(maxScore, total);
-    }
-  }
-  console.log(maxScore);
-}
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Transform array of object to array
-
-```javascript
-let data = [
-  { vid: "aaa", san: 12 },
-  { vid: "aaa", san: 18 },
-  { vid: "aaa", san: 2 },
-  { vid: "bbb", san: 33 },
-  { vid: "bbb", san: 44 },
-  { vid: "aaa", san: 100 },
-];
-
-let newData = data.reduce((acc, item) => {
-  acc[item.vid] = acc[item.vid] || { vid: item.vid, san: [] };
-  acc[item.vid]["san"].push(item.san);
-  return acc;
-}, {});
-
-console.log(Object.keys(newData).map((key) => newData[key]));
-
-// Result
-// [[object Object] {
-//   san: [12, 18, 2, 100],
-//   vid: "aaa"
-// }, [object Object] {
-//   san: [33, 44],
-//   vid: "bbb"
-// }]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Create a private variable or private method in object
-
-```javascript
-let obj = (function () {
-  function getPrivateFunction() {
-    console.log("this is private function");
-  }
-  let p = "You are accessing private variable";
-  return {
-    getPrivateProperty: () => {
-      console.log(p);
-    },
-    callPrivateFunction: getPrivateFunction,
-  };
-})();
-
-obj.getPrivateValue(); // You are accessing private variable
-console.log("p" in obj); // false
-obj.callPrivateFunction(); // this is private function
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Flatten only Array not objects
-
-```javascript
-function flatten(arr, result = []) {
-  arr.forEach((val) => {
-    if (Array.isArray(val)) {
-      flatten(val, result);
-    } else {
-      result.push(val);
-    }
-  });
-  return result;
-}
-
-let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
-console.log(flatten(input)); // [1, { a: [2, [3]]}, 4, 5, 6, 7, "hi", 8, 9, 10]
-
-function flattenIterative(out) {
-  // iteratively
-  let result = out;
-  while (result.some(Array.isArray)) {
-    result = [].concat.apply([], result);
-  }
-  return result;
-}
-var list1 = [
-  [0, 1],
-  [2, 3],
-  [4, 5],
-];
-console.log(flattenIterative(list1)); // [0, 1, 2, 3, 4, 5]
-
-function flattenIterative1(current) {
-  let result = [];
-  while (current.length) {
-    let firstValue = current.shift();
-    if (Array.isArray(firstValue)) {
-      current = firstValue.concat(current);
-    } else {
-      result.push(firstValue);
-    }
-  }
-  return result;
-}
-
-let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
-console.log(flattenIterative1(input));
-var list2 = [0, [1, [2, [3, [4, [5]]]]]];
-console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Find max difference between two number in Array
-
-```javascript
-function maxDifference(arr) {
-  let maxDiff = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      let diff = Math.abs(arr[i] - arr[j]);
-      maxDiff = Math.max(maxDiff, diff);
-    }
-  }
-  return maxDiff;
-}
-
-console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
-```
-
-## Q. swap two number in ES6 [destructing]
-
-```javascript
-let a = 10,
-  b = 5;
-[a, b] = [b, a];
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Panagram ? it means all the 26 letters of alphabet are there
-
-```javascript
-function panagram(input) {
-  if (input == null) {
-    // Check for null and undefined
-    return false;
-  }
-
-  if (input.length < 26) {
-    // if length is less then 26 then it is not
-    return false;
-  }
-  input = input.replace(/ /g, "").toLowerCase().split("");
-  let obj = input.reduce((prev, current) => {
-    if (!(current in prev)) {
-      prev[current] = current;
-    }
-    return prev;
-  }, {});
-  console.log(Object.keys(obj).length === 26 ? "panagram" : "not pangram");
-}
-processData("We promptly judged antique ivory buckles for the next prize"); // pangram
-processData("We promptly judged antique ivory buckles for the prize"); // Not Pangram
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
-
-```javascript
-function indexOf(arrLike, target) {
-  return Array.prototype.indexOf.call(arrLike, target);
-}
-
-// Given a node and a tree, extract the nodes path
-function getPath(root, target) {
-  var current = target;
-  var path = [];
-  while (current !== root) {
-    let parentNode = current.parentNode;
-    path.unshift(indexOf(parentNode.childNodes, current));
-    current = parentNode;
-  }
-  return path;
-}
-
-// Given a tree and a path, let's locate a node
-function locateNodeFromPath(node, path) {
-  return path.reduce((root, index) => root.childNodes[index], node);
-}
-
-const rootA = document.querySelector("#root-a");
-const rootB = document.querySelector("#root-b");
-const target = rootA.querySelector(".person__age");
-
-console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Convert a number into a Roman Numeral
-
-```javascript
-function romanize(num) {
-  let lookup = {
-      M: 1000,
-      CM: 900,
-      D: 500,
-      CD: 400,
-      C: 100,
-      XC: 90,
-      L: 50,
-      XL: 40,
-      X: 10,
-      IX: 9,
-      V: 5,
-      IV: 4,
-      I: 1,
-    },
-    roman = "";
-  for (let i in lookup) {
-    while (num >= lookup[i]) {
-      roman += i;
-      num -= lookup[i];
-    }
-  }
-  return roman;
-}
-
-console.log(romanize(3)); // III
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. check if parenthesis is malformed or not
-
-```javascript
-function matchParenthesis(str) {
-  let obj = { "{": "}", "(": ")", "[": "]" };
-  let result = [];
-  for (let s of str) {
-    if (s === "{" || s === "(" || s === "[") {
-      // All opening brackets
-      result.push(s);
-    } else {
-      if (result.length > 0) {
-        let lastValue = result.pop(); //pop the last value and compare with key
-        if (obj[lastValue] !== s) {
-          // if it is not same then it is not formated properly
-          return false;
-        }
-      } else {
-        return false; // empty array, there is nothing to pop. so it is not formated properly
-      }
-    }
-  }
-  return result.length === 0;
-}
-
-console.log(matchParenthesis("}{{}}"), matchParenthesis("{{[]}}")); // false - true
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Create Custom Event Emitter class
-
-```javascript
-class EventEmitter {
-  constructor() {
-    this.holder = {};
-  }
-
-  on(eventName, fn) {
-    if (eventName && typeof fn === "function") {
-      this.holder[eventName] = this.holder[eventName] || [];
-      this.holder[eventName].push(fn);
-    }
-  }
-
-  emit(eventName, ...args) {
-    let eventColl = this.holder[eventName];
-    if (eventColl) {
-      eventColl.forEach((callback) => callback(args));
-    }
-  }
-}
-
-let e = new EventEmitter();
-e.on("callme", function (args) {
-  console.log(`you called me ${args}`);
-});
-e.on("callme", function (args) {
-  console.log(`testing`);
-});
-
-e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Max value from an array
-
-```javascript
-const arr = [-2, -3, 4, 3, 2, 1];
-Math.max(...arr); // Fastest
-
-Math.max.apply(Math, arr); // Slow
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. DOM methods
-
-```javascript
-https://github.com/nefe/You-Dont-Need-jQuery
-
-var el = document.querySelector('div');
-el.childNodes;   // get the list of child nodes of el
-el.firstChild;   // get the first child node of el
-el.lastChild;    // get the last child node of el
-el.parentNode;   // get the parent node of el
-el.previousSibling;    // get the previous sibling of el
-el.nextSibling;  // get the next sibling of el
-el.textContent;  // get the text content of el
-el.innerHTML;    // get the inner html of el
-
-document.createElement('div')  // create dom element
-document.creatTextNode('Hello world');  // create text node
-document.createDocumentFragment();
-
-el.appendChild(); //append child to el;
-el.insertBefore(); // insert child before el;
-el.parentNode.replaceChild(NEW_NODE, REPLACE_ME)  // replace the node
-el.removechild();  // remove the child node
-
-Array.from(NODES) // convert nodelist to regular array
-
-el.classList[contains | add | remove | replace]  // class of el
-
-el.dataset.<camelCaseName> // data-count is dataset.count, data-index-number is dataset.indexNumber
-
-el.setAttribute | el.getAttribute | el.removeAttribute // attributes of el
-
-el.style    // get the style of el
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. search function called after 500 ms
-
-```javascript
-<input type="text" class="search" />;
-
-let timer = null;
-function searchOptions(value) {
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    console.log(`value is - ${value}`);
-  }, 500);
-}
-
-let search = document.querySelector(".search");
-search.addEventListener("keyup", function () {
-  searchOptions(this.value);
-});
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Move all zero's to end
-
-```javascript
-const moveZeroToEnd = (arr) => {
-  for (let i = 0, j = 0; j < arr.length; j++) {
-    if (arr[j] !== 0) {
-      if (i < j) {
-        [arr[i], arr[j]] = [arr[j], arr[i]]; // swap i and j
-      }
-      i++;
-    }
-  }
-  return arr;
-};
-
-console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0])); // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Decode message in matrix [diagional down right, diagional up right]
-
-```javascript
-const decodeMessage = (mat) => {
-  // check if matrix is null or empty
-  if (mat == null || mat.length === 0) {
-    return "";
-  }
-  let x = mat.length - 1;
-  let y = mat[0].length - 1;
-  let message = "";
-  let decode = (mat, i = 0, j = 0, direction = "DOWN") => {
-    message += mat[i][j];
-
-    if (i === x) {
-      direction = "UP";
-    }
-
-    if (direction === "DOWN") {
-      i++;
-    } else {
-      i--;
-    }
-
-    if (j === y) {
-      return;
-    }
-
-    j++;
-    decode(mat, i, j, direction);
-  };
-  decode(mat);
-  return message;
-};
-
-let mat = [
-  ["I", "B", "C", "A", "L", "K", "A"],
-  ["D", "R", "F", "C", "A", "E", "A"],
-  ["G", "H", "O", "E", "L", "A", "D"],
-  ["G", "H", "O", "E", "L", "A", "D"],
-];
-
-console.log(decodeMessage(mat)); //IROELEA
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. find a pair in array, whose sum is equal to given number.
-
-```javascript
-const hasPairSum = (arr, sum) => {
-  if (arr == null && arr.length < 2) {
-    return false;
-  }
-
-  let left = 0;
-  let right = arr.length - 1;
-  let result = false;
-
-  while (left < right && !result) {
-    let pairSum = arr[left] + arr[right];
-    if (pairSum < sum) {
-      left++;
-    } else if (pairSum > sum) {
-      right--;
-    } else {
-      result = true;
-    }
-  }
-  return result;
-};
-
-console.log(hasPairSum([1, 2, 4, 5], 8)); // null
-console.log(hasPairSum([1, 2, 4, 4], 8)); // [2,3]
-
-const hasPairSum = (arr, sum) => {
-  let difference = {};
-  let hasPair = false;
-  arr.forEach((item) => {
-    let diff = sum - item;
-    if (!difference[diff]) {
-      difference[item] = true;
-    } else {
-      hasPair = true;
-    }
-  });
-  return hasPair;
-};
-console.log(hasPairSum([6, 4, 3, 8], 8));
-
-// NOTE: if array is not sorted then subtract the value with sum and store in difference
-// then see if that value exist in difference then return true.
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Binary Search [Array should be sorted]
-
-```javascript
-function binarySearch(arr, val) {
-  let startIndex = 0,
-    stopIndex = arr.length - 1,
-    middleIndex = Math.floor((startIndex + stopIndex) / 2);
-
-  while (arr[middleIndex] !== val && startIndex < stopIndex) {
-    if (val < arr[middleIndex]) {
-      stopIndex = middleIndex - 1;
-    } else if (val > arr[middleIndex]) {
-      startIndex = middleIndex + 1;
-    }
-    middleIndex = Math.floor((startIndex + stopIndex) / 2);
-  }
-
-  return arr[middleIndex] === val ? middleIndex : -1;
-}
-
-console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 22));
-console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Pascal triangle.
-
-```javascript
-function pascalTriangle(n) {
-  let last = [1],
-    triangle = [last];
-  for (let i = 0; i < n; i++) {
-    const ls = [0].concat(last), //[0,1]           // [0,1,1]
-      rs = last.concat([0]); //[1,0]           // [1,1,0]
-    last = rs.map((r, i) => ls[i] + r); //[1, 1]          // [1,2,1]
-    triangle = triangle.concat([last]); // [[1], [1,1]]   // [1], [1, 1], [1, 2, 1]
-  }
-  return triangle;
-}
-
-console.log(pascalTriangle(2));
-```
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Explain the code below. How many times the createVal function is called?
+## Q. How many times the createVal function is called?
 
 ```javascript
 function createVal() {
@@ -5156,16 +4988,15 @@ function sayHi() {
 sayHi();
 ```
 
-- A: `Lydia` and `undefined`
-- B: `Lydia` and `ReferenceError`
-- C: `ReferenceError` and `21`
-- D: `undefined` and `ReferenceError`
+<details><summary><b>Answer<b></summary>
 
-**Answer: D**
+**Answer:**
 
 Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
 
 Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5183,15 +5014,15 @@ for (let i = 0; i < 3; i++) {
 }
 ```
 
-- A: `0 1 2` and `0 1 2`
-- B: `0 1 2` and `3 3 3`
-- C: `3 3 3` and `0 1 2`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
 
 In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5212,18 +5043,17 @@ console.log(shape.diameter());
 console.log(shape.perimeter());
 ```
 
-- A: `20` and `62.83185307179586`
-- B: `20` and `NaN`
-- C: `20` and `63`
-- D: `NaN` and `63`
+<details><summary><b>Answer<b></summary>
 
-**Answer: B**
+**Answer:**
 
 Note that the value of `diameter` is a regular function, whereas the value of `perimeter` is an arrow function.
 
 With arrow functions, the `this` keyword refers to its current surrounding scope, unlike regular functions! This means that when we call `perimeter`, it doesn't refer to the shape object, but to its surrounding scope (window for example).
 
 There is no value `radius` on that object, which returns `undefined`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5236,15 +5066,15 @@ There is no value `radius` on that object, which returns `undefined`.
 !"Lydia";
 ```
 
-- A: `1` and `false`
-- B: `false` and `NaN`
-- C: `false` and `false`
+<details><summary><b>Answer<b></summary>
 
-**Answer: A**
+**Answer:**
 
 The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
 
 The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
