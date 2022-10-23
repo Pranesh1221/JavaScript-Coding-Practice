@@ -940,7 +940,15 @@ var output = (function () {
 console.log(output);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will output `undefined` as output. `delete` operator is used to delete a property from an object. Here `x` is an object which has foo as a property and from a self-invoking function, we are deleting the `foo` property of object `x` and after deletion, we are trying to reference deleted property `foo` which result `undefined`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. ***What will be the output of the following code?***
 
@@ -953,9 +961,13 @@ delete emp1.company;
 console.log(emp1.company);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn't delete prototype property.
 
 `emp1` object doesn't have **company** as its own property. you can test it `console.log(emp1.hasOwnProperty('company')); //output : false` However, we can delete company property directly from `Employee` object using `delete Employee.company` or we can also delete from `emp1` object using `__proto__` property `delete emp1.__proto__.company`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -969,9 +981,17 @@ delete trees[3];
 console.log(trees.length);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
 
 So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. ***What will be the output of the following code?***
 
@@ -983,6 +1003,8 @@ console.log(bar + true);
 console.log(bar + false);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will output `1, "truexyz", 2, 1` as output. Here's a general guideline for the plus operator:
 
 - Number + Number -> Addition
@@ -991,6 +1013,8 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
 - Number + String -> Concatenation
 - String + Boolean -> Concatenation
 - String + String -> Concatenation
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -1004,6 +1028,8 @@ var z = 1,
 console.log(y);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The code above will print string `"undefined"` as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is `Right to Left` so first `typeof y` will evaluate first which is string `"undefined"` and assigned to `z` and then `y` would be assigned the value of z. The overall sequence will look like that:
 
 ```javascript
@@ -1013,6 +1039,8 @@ var y;
 z = typeof y;
 y = z;
 ```
+
+</details>
 
 ## Q. ***What will be the output of the following code?***
 
@@ -1024,9 +1052,11 @@ var foo = function bar() {
 typeof bar();
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The output will be `Reference Error`. To fix the bug we can try to rewrite the code a little bit:
 
-**Sample 1**
+**Sample 1:**
 
 ```javascript
 var bar = function () {
@@ -1037,7 +1067,7 @@ typeof bar();
 
 or
 
-**Sample 2**
+**Sample 2:**
 
 ```javascript
 function bar() {
@@ -1058,6 +1088,8 @@ var foo = function bar() {
 // bar is undefined here
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -1074,14 +1106,22 @@ function bar() {
 }
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The output will be :
 
-```
+```js
 bar got called
 something
 ```
 
 Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. ***What will be the output of the following code?***
 
@@ -1096,6 +1136,8 @@ var salary = "1000$";
   console.log("My New Salary " + salary);
 })();
 ```
+
+<details><summary><b>Answer<b></summary>
 
 The code above will output: `undefined, 5000$` because of hoisting. In the code presented above, you might be expecting `salary` to retain it values from outer scope until the point that `salary` was re-declared in the inner scope. But due to `hoisting` salary value was `undefined` instead. To understand it better have a look of the following code, here `salary` variable is hoisted and declared at the top in function scope. When we print its value using `console.log` the result is `undefined`. Afterwards the variable is redeclared and the new value `"5000$"` is assigned to it.
 
@@ -1112,6 +1154,8 @@ var salary = "1000$";
 })();
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -1127,6 +1171,8 @@ var person = (new User("xyz")["location"] = "USA");
 console.log(person);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
 
 Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
@@ -1136,7 +1182,7 @@ To better understand What is going on here, try to execute this code in console,
 
 ```javascript
 function User(name) {
-  this.name = name || "JsGeeks";
+  this.name = name || "JS";
 }
 
 var person;
@@ -1144,6 +1190,8 @@ var foo = new User("xyz");
 foo["location"] = "USA";
 // the console will show you that the result of this is "USA"
 ```
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -1158,8 +1206,12 @@ strB = "bye there!";
 console.log(strA);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The output will `'hi there'` because we're dealing with strings here. Strings are
 passed by value, that is, copied.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -1174,8 +1226,16 @@ objB.prop1 = 90;
 console.log(objA);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The output will `{prop1: 90}` because we're dealing with objects here. Objects are
 passed by reference, that is, `objA` and `objB` point to the same object in memory.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. ***What would be the output of following code?***
 
@@ -1186,13 +1246,17 @@ objB = {};
 console.log(objA);
 ```
 
+<details><summary><b>Answer<b></summary>
+
 The output will `{prop1: 42}`.
 
 When we assign `objA` to `objB`, the `objB` variable will point
 to the same object as the `objB` variable.
 
 However, when we reassign `objB` to an empty object, we simply change where `objB` variable references to.
-This doesn't affect where `objA` variable references to.
+This doesn\'t affect where `objA` variable references to.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
