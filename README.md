@@ -129,7 +129,7 @@ File Extension: jpg
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Create a Stopwatch program in javascript?
+## Q. Create a stopwatch in javascript?
 
 <details><summary><b>Answer<b></summary>
 
