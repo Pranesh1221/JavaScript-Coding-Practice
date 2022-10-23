@@ -5295,16 +5295,15 @@ console.log(lydia);
 console.log(sarah);
 ```
 
-- A: `Person {firstName: "Lydia", lastName: "Hallie"}` and `undefined`
-- B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
-- C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
-- D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
+<details><summary><b>Answer<b></summary>
 
-**Answer: A**
+**Answer:**
 
 For `sarah`, we didn\'t use the `new` keyword. When using `new`, it refers to the new empty object we create. However, if you don\'t add `new` it refers to the **global object**!
 
 We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don\'t return a value from the `Person` function.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5317,24 +5316,32 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 - C: Target > Bubbling > Capturing
 - D: Capturing > Target > Bubbling
 
+<details><summary><b>Answer<b></summary>
+
 **Answer: D**
 
 During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. All object have prototypes.
+## Q. All object have prototypes?
 
 - A: true
 - B: false
 
+<details><summary><b>Answer<b></summary>
+
 **Answer: B**
 
 All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can\'t find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5350,16 +5357,15 @@ function sum(a, b) {
 sum(1, "2");
 ```
 
-- A: `NaN`
-- B: `TypeError`
-- C: `"12"`
-- D: `3`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 JavaScript is a **dynamically typed language**: we don\'t specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
 In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so What is happening here is `"1" + "2"` which returns `"12"`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5374,12 +5380,9 @@ console.log(++number);
 console.log(number);
 ```
 
-- A: `1` `1` `2`
-- B: `1` `2` `2`
-- C: `0` `2` `2`
-- D: `0` `1` `2`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 The **postfix** unary operator `++`:
 
@@ -5392,6 +5395,8 @@ The **prefix** unary operator `++`:
 2. Returns the value (this returns `2`)
 
 This returns `0 2 2`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5412,13 +5417,13 @@ const age = 21;
 getPersonInfo`${person} is ${age} years old`;
 ```
 
-- A: `"Lydia"` `21` `["", " is ", " years old"]`
-- B: `["", " is ", " years old"]` `"Lydia"` `21`
-- C: `"Lydia"` `["", " is ", " years old"]` `21`
+<details><summary><b>Answer<b></summary>
 
-**Answer: B**
+**Answer:**
 
 If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5440,17 +5445,17 @@ function checkAge(data) {
 checkAge({ age: 18 });
 ```
 
-- A: `You are an adult!`
-- B: `You are still an adult.`
-- C: `Hmm.. You don\'t have an age I guess`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 When testing equality, primitives are compared by their _value_, while objects are compared by their _reference_. JavaScript checks if the objects have a reference to the same location in memory.
 
 The two objects that we are comparing don\'t have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
 
 This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5466,14 +5471,13 @@ function getAge(...args) {
 getAge(21);
 ```
 
-- A: `"number"`
-- B: `"array"`
-- C: `"object"`
-- D: `"NaN"`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5491,14 +5495,13 @@ function getAge() {
 getAge();
 ```
 
-- A: `21`
-- B: `undefined`
-- C: `ReferenceError`
-- D: `TypeError`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 With `"use strict"`, you can make sure that you don\'t accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn\'t use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5510,14 +5513,13 @@ With `"use strict"`, you can make sure that you don\'t accidentally declare glob
 const sum = eval("10*10+5");
 ```
 
-- A: `105`
-- B: `"105"`
-- C: `TypeError`
-- D: `"10*10+5"`
+<details><summary><b>Answer<b></summary>
 
-**Answer: A**
+**Answer:**
 
 `eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5529,16 +5531,15 @@ const sum = eval("10*10+5");
 sessionStorage.setItem("cool_secret", 123);
 ```
 
-- A: Forever, the data doesn\'t get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
+<details><summary><b>Answer<b></summary>
 
-**Answer: B**
+**Answer:**
 
 The data stored in `sessionStorage` is removed after closing the _tab_.
 
 If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5553,15 +5554,14 @@ var num = 10;
 console.log(num);
 ```
 
-- A: `8`
-- B: `10`
-- C: `SyntaxError`
-- D: `ReferenceError`
+<details><summary><b>Answer<b></summary>
 
-**Answer: B**
+**Answer:**
 
 With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
 You cannot do this with `let` or `const` since they're block-scoped.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5579,16 +5579,15 @@ set.has("1");
 set.has(1);
 ```
 
-- A: `false` `true` `false` `true`
-- B: `false` `true` `true` `true`
-- C: `true` `true` `false` `true`
-- D: `true` `true` `true` `true`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 All object keys (excluding Symbols) are strings under the hood, even if you don\'t type it yourself as a string. This is why `obj.hasOwnProperty('1')` also returns true.
 
 It doesn\'t work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5601,14 +5600,13 @@ const obj = { a: "one", b: "two", a: "three" };
 console.log(obj);
 ```
 
-- A: `{ a: "one", b: "two" }`
-- B: `{ b: "two", a: "three" }`
-- C: `{ a: "three", b: "two" }`
-- D: `SyntaxError`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5620,9 +5618,13 @@ If you have two keys with the same name, the key will be replaced. It will still
 - B: false
 - C: it depends
 
+<details><summary><b>Answer<b></summary>
+
 **Answer: A**
 
 The base execution context is the global execution context: it's What is accessible everywhere in your code.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5637,14 +5639,13 @@ for (let i = 1; i < 5; i++) {
 }
 ```
 
-- A: `1` `2`
-- B: `1` `2` `3`
-- C: `1` `2` `4`
-- D: `1` `3` `4`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
+**Answer:**
 
 The `continue` statement skips an iteration if a certain condition returns `true`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5662,14 +5663,13 @@ const name = "Lydia";
 name.giveLydiaPizza();
 ```
 
-- A: `"Just give Lydia pizza already!"`
-- B: `TypeError: not a function`
-- C: `SyntaxError`
-- D: `undefined`
+<details><summary><b>Answer<b></summary>
 
-**Answer: A**
+**Answer:**
 
 `String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5688,18 +5688,17 @@ a[c] = 456;
 console.log(a[b]);
 ```
 
-- A: `123`
-- B: `456`
-- C: `undefined`
-- D: `ReferenceError`
+<details><summary><b>Answer<b></summary>
 
-**Answer: B**
+**Answer:**
 
 Object keys are automatically converted into strings. We are trying to set an object as a key to object `a`, with the value of `123`.
 
 However, when we stringify an object, it becomes `"[Object object]"`. So what we are saying here, is that `a["Object object"] = 123`. Then, we can try to do the same again. `c` is another object that we are implicitly stringifying. So then, `a["Object object"] = 456`.
 
 Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5717,12 +5716,7 @@ foo();
 baz();
 ```
 
-- A: `First` `Second` `Third`
-- B: `First` `Third` `Second`
-- C: `Second` `First` `Third`
-- D: `Second` `Third` `First`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 We have a `setTimeout` function and invoked it first. Yet, it was logged last.
 
@@ -5750,6 +5744,8 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 `bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -5764,14 +5760,11 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 </div>
 ```
 
-- A: Outer `div`
-- B: Inner `div`
-- C: `button`
-- D: An array of all nested elements.
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5785,14 +5778,11 @@ The deepest nested element that caused the event is the target of the event. You
 </div>
 ```
 
-- A: `p` `div`
-- B: `div` `p`
-- C: `p`
-- D: `div`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5811,16 +5801,13 @@ sayHi.call(person, 21);
 sayHi.bind(person, 21);
 ```
 
-- A: `undefined is 21` `Lydia is 21`
-- B: `function` `function`
-- C: `Lydia is 21` `Lydia is 21`
-- D: `Lydia is 21` `function`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
 
 `.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5836,16 +5823,13 @@ function sayHi() {
 console.log(typeof sayHi());
 ```
 
-- A: `"object"`
-- B: `"number"`
-- C: `"function"`
-- D: `"undefined"`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 The `sayHi` function returns the returned value of the immediately invoked function (IIFE). This function returned `0`, which is type `"number"`.
 
 FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5862,12 +5846,7 @@ new Boolean(false);
 undefined;
 ```
 
-- A: `0`, `''`, `undefined`
-- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
-- C: `0`, `''`, `new Boolean(false)`, `undefined`
-- D: All of them are falsy
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 There are only six falsy values:
 
@@ -5880,6 +5859,8 @@ There are only six falsy values:
 
 Function constructors, like `new Number` and `new Boolean` are truthy.
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -5890,15 +5871,12 @@ Function constructors, like `new Number` and `new Boolean` are truthy.
 console.log(typeof typeof 1);
 ```
 
-- A: `"number"`
-- B: `"string"`
-- C: `"object"`
-- D: `"undefined"`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 `typeof 1` returns `"number"`.
 `typeof "number"` returns `"string"`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5912,18 +5890,15 @@ numbers[10] = 11;
 console.log(numbers);
 ```
 
-- A: `[1, 2, 3, 7 x null, 11]`
-- B: `[1, 2, 3, 11]`
-- C: `[1, 2, 3, 7 x empty, 11]`
-- D: `SyntaxError`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 When you set a value to an element in an array that exceeds the length of the array, JavaScript creates something called "empty slots". These actually have the value of `undefined`, but you will see something like:
 
 `[1, 2, 3, 7 x empty, 11]`
 
 depending on where you run it (it's different for every browser, node, etc.)
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5945,18 +5920,15 @@ depending on where you run it (it's different for every browser, node, etc.)
 })();
 ```
 
-- A: `1` `undefined` `2`
-- B: `undefined` `undefined` `undefined`
-- C: `1` `1` `2`
-- D: `1` `undefined` `undefined`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
 
 Later, we set this block-scoped variable equal to `1`, and set the value of the variable `y`. Now, we log the block-scoped variable `x`, which is equal to `1`.
 
 Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5969,13 +5941,15 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 - C: trick question! only objects
 - D: number or object
 
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 JavaScript only has primitive types and objects.
 
 Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, and `symbol`.
 
 What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -5995,16 +5969,13 @@ What differentiates a primitive from an object is that primitives do not have an
 );
 ```
 
-- A: `[0, 1, 2, 3, 1, 2]`
-- B: `[6, 1, 2]`
-- C: `[1, 2, 0, 1, 2, 3]`
-- D: `[1, 2, 6]`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 `[1, 2]` is our initial value. This is the value we start with, and the value of the very first `acc`. During the first round, `acc` is `[1,2]`, and `cur` is `[0, 1]`. We concatenate them, which results in `[1, 2, 0, 1]`.
 
 Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6018,18 +5989,15 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 !!1;
 ```
 
-- A: `false` `true` `false`
-- B: `false` `false` `true`
-- C: `false` `true` `true`
-- D: `true` `true` `false`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 `null` is falsy. `!null` returns `true`. `!true` returns `false`.
 
 `""` is falsy. `!""` returns `true`. `!true` returns `false`.
 
 `1` is truthy. `!1` returns `false`. `!false` returns `true`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6041,14 +6009,11 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 setInterval(() => console.log("Hi"), 1000);
 ```
 
-- A: a unique id
-- B: the amount of milliseconds specified
-- C: the passed function
-- D: `undefined`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6060,14 +6025,11 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 [..."Lydia"];
 ```
 
-- A: `["L", "y", "d", "i", "a"]`
-- B: `["Lydia"]`
-- C: `[[], "Lydia"]`
-- D: `[["L", "y", "d", "i", "a"]]`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 A string is an iterable. The spread operator maps every character of an iterable to one element.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6087,18 +6049,15 @@ console.log(gen.next().value);
 console.log(gen.next().value);
 ```
 
-- A: `[0, 10], [10, 20]`
-- B: `20, 20`
-- C: `10, 20`
-- D: `0, 10 and 10, 20`
+<details><summary><b>Answer<b></summary>
 
-**Answer: C**
-
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
+Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn\'t _return_ the value, it _yields_ the value.
 
 First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
 
 Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6118,14 +6077,11 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
 
-- A: `"one"`
-- B: `"two"`
-- C: `"two" "one"`
-- D: `"one" "two"`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6141,12 +6097,7 @@ person = null;
 console.log(members);
 ```
 
-- A: `null`
-- B: `[null]`
-- C: `[{}]`
-- D: `[{ name: "Lydia" }]`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 First, we declare a variable `person` with the value of an object that has a `name` property.
 
@@ -6161,6 +6112,8 @@ Then, we set the variable `person` equal to `null`.
 <img src="https://i.imgur.com/sYjcsMT.png" width="300">
 
 We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6179,14 +6132,11 @@ for (const item in person) {
 }
 ```
 
-- A: `{ name: "Lydia" }, { age: 21 }`
-- B: `"name", "age"`
-- C: `"Lydia", 21`
-- D: `["name", "Lydia"], ["age", 21]`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6198,18 +6148,15 @@ With a `for-in` loop, we can iterate through object keys, in this case `name` an
 console.log(3 + 4 + "5");
 ```
 
-- A: `"345"`
-- B: `"75"`
-- C: `12`
-- D: `"12"`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 Operator associativity is the order in which the compiler evaluates the expressions, either left-to-right or right-to-left. This only happens if all operators have the _same_ precedence. We only have one type of operator: `+`. For addition, the associativity is left-to-right.
 
 `3 + 4` gets evaluated first. This results in the number `7`.
 
 `7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6221,16 +6168,13 @@ Operator associativity is the order in which the compiler evaluates the expressi
 const num = parseInt("7*6", 10);
 ```
 
-- A: `42`
-- B: `"42"`
-- C: `7`
-- D: `NaN`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn\'t a valid number in the radix, it stops parsing and ignores the following characters.
 
 `*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6245,16 +6189,13 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 });
 ```
 
-- A: `[]`
-- B: `[null, null, null]`
-- C: `[undefined, undefined, undefined]`
-- D: `[ 3 x empty ]`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 When mapping over the array, the value of `num` is equal to the element it’s currently looping over. In this case, the elements are numbers, so the condition of the if statement `typeof num === "number"` returns `true`. The map function creates a new array and inserts the values returned from the function.
 
-However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+However, we don\'t return a value. When we don\'t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
