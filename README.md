@@ -238,6 +238,8 @@ console.log(reverseString("Hello"));
 
 ## Q. Create a Promise to accept car names as argument and send response once the argument matches with Maruti?
 
+<details><summary><b>Answer<b></summary>
+
 ```js
 async function myCars(name) {
   const promise = new Promise((resolve, reject) => {
@@ -252,6 +254,8 @@ myCars("Maruti");
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-1tmrnp?file=/src/index.js)**
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
