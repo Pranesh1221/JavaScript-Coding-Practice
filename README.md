@@ -2065,6 +2065,37 @@ myArray = [
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Predict the output of the following JS code?
+
+```js
+var a = 1;
+
+function b(){
+
+    a = 10;
+    return;
+  
+    function a(){
+
+    }
+}
+
+b();
+console.log(a)
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+1
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following NodeJS code?
 
 ```js
