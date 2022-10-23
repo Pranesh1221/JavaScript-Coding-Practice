@@ -2140,20 +2140,63 @@ Error
 ## Q. Predict the output of the following JS code?
 
 ```js
+var obj = {name: "neha", getName: function() {console.log(this.name);}}
+
+var getName = obj.getName;
+var obj2 = {name: "naina", getName};
+obj.getName();
+obj2.getName();
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+Neha
+Naina
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
+const person = {name: "neha"};
+const array = [person, person, person];
+
+array[1].name = "";
+console.log(array[0].name);
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+undefined
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 var a = 1;
 
-function b(){
+function b() {
+  a = 10;
+  return;
 
-    a = 10;
-    return;
-  
-    function a(){
-
-    }
+  function a() {}
 }
 
 b();
-console.log(a)
+console.log(a);
 ```
 
 <details><summary><b>Answer<b></summary>
