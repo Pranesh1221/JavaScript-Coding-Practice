@@ -2065,6 +2065,48 @@ myArray = [
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a program to get the value of an object from a specific path?
+
+**Example:**
+
+```js
+Input:
+
+const data = {
+    user: {
+        username: 'Navin Chauhan',
+        password: 'Secret'
+    },
+    rapot: {
+        title: 'Storage usage raport',
+        goal: 'Remove unused data.'
+    }
+};
+
+Output:
+console.log(getObjectProperty(data, 'user.username')); // Navin Chauhan
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+const getObjectProperty = (object, path) => {
+  const parts = path.split('.');
+
+  for (let i = 0; i < parts.length; ++i) {
+      const key = parts[i];
+      object = object[key];
+    }
+  return object;
+};
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JS code?
 
 ```js
