@@ -5537,7 +5537,7 @@ sessionStorage.setItem("cool_secret", 123);
 
 The data stored in `sessionStorage` is removed after closing the _tab_.
 
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
+If you used `localStorage`, the data would\'ve been there forever, unless for example `localStorage.clear()` is invoked.
 
 </details>
 
@@ -6511,18 +6511,15 @@ const data = JSON.stringify(settings, ["level", "health"]);
 console.log(data);
 ```
 
-- A: `"{"level":19, "health":90}"`
-- B: `"{"username": "lydiahallie"}"`
-- C: `"["level", "health"]"`
-- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.
 
 If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
 
 If the replacer is a _function_, this function gets called on every property in the object you\'re stringifying. The value returned from this function will be the value of the property when it\'s added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6543,16 +6540,13 @@ console.log(num1);
 console.log(num2);
 ```
 
-- A: `10`, `10`
-- B: `10`, `11`
-- C: `11`, `11`
-- D: `11`, `12`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
 
 `num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6573,12 +6567,7 @@ multiply(value);
 multiply(value);
 ```
 
-- A: `20`, `40`, `80`, `160`
-- B: `20`, `40`, `20`, `40`
-- C: `20`, `20`, `20`, `40`
-- D: `NaN`, `NaN`, `20`, `40`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
 
@@ -6587,6 +6576,8 @@ The default argument is evaluated at _call time_! Every time we call the functio
 The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`.
 
 The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6598,12 +6589,7 @@ The fourth time, we pass the `value` object again. `x.number` was previously mod
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
 ```
 
-- A: `1` `2` and `3` `3` and `6` `4`
-- B: `1` `2` and `2` `3` and `3` `4`
-- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
-- D: `1` `2` and `undefined` `3` and `undefined` `4`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 The first argument that the `reduce` method receives is the _accumulator_, `x` in this case. The second argument is the _current value_, `y`. With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value.
 
@@ -6617,9 +6603,7 @@ If you don\'t return a value from a function, it returns `undefined`. On the nex
 
 On the fourth call, we again don\'t return from the callback function. The accumulator is again `undefined`, and the current value is `4`. `undefined` and `4` get logged.
 
-</p>
-</details>  
----
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6657,18 +6641,15 @@ class Labrador extends Dog {
 }
 ```
 
-- A: 1
-- B: 2
-- C: 3
-- D: 4
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 In a derived class, you cannot access the `this` keyword before calling `super`. If you try to do that, it will throw a ReferenceError: 1 and 4 would throw a reference error.
 
 With the `super` keyword, we call that parent class\'s constructor with the given arguments. The parent\'s constructor receives the `name` argument, so we need to pass `name` to `super`.
 
 The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly using constructor 2.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6687,16 +6668,13 @@ console.log("running sum.js");
 export const sum = (a, b) => a + b;
 ```
 
-- A: `running index.js`, `running sum.js`, `3`
-- B: `running sum.js`, `running index.js`, `3`
-- C: `running sum.js`, `3`, `running index.js`
-- D: `running index.js`, `undefined`, `running sum.js`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
 
 This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6710,14 +6688,11 @@ console.log(Boolean(false) === Boolean(false));
 console.log(Symbol("foo") === Symbol("foo"));
 ```
 
-- A: `true`, `true`, `false`
-- B: `false`, `true`, `false`
-- C: `true`, `false`, `true`
-- D: `true`, `true`, `true`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6731,68 +6706,13 @@ console.log(name.padStart(13));
 console.log(name.padStart(2));
 ```
 
-- A: `"Lydia Hallie"`, `"Lydia Hallie"`
-- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
-- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`,
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 With the `padStart` method, we can add padding to the beginning of a string. The value passed to this method is the _total_ length of the string together with the padding. The string `"Lydia Hallie"` has a length of `12`. `name.padStart(13)` inserts 1 space at the start of the string, because 12 + 1 is 13.
 
 If the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-console.log("🥑" + "💻");
-```
-
-- A: `"🥑💻"`
-- B: `257548`
-- C: A string containing their code points
-- D: Error
-
-**Answer: A**
-
-With the `+` operator, you can concatenate strings. In this case, we are concatenating the string `"🥑"` with the string `"💻"`, resulting in `"🥑💻"`.
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. How can we log the values that are commented out after the console.log statement?
-
-```javascript
-function* startGame() {
-  const answer = yield "Do you love JavaScript?";
-  if (answer !== "Yes") {
-    return "Oh wow... Guess we\'re gone here";
-  }
-  return "JavaScript loves you back ❤️";
-}
-
-const game = startGame();
-console.log(/* 1 */); // Do you love JavaScript?
-console.log(/* 2 */); // JavaScript loves you back ❤️
-```
-
-- A: `game.next("Yes").value` and `game.next().value`
-- B: `game.next.value("Yes")` and `game.next.value()`
-- C: `game.next().value` and `game.next("Yes").value`
-- D: `game.next.value()` and `game.next.value("Yes")`
-
-**Answer: C**
-
-A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
-
-Every line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_
-
-When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6804,12 +6724,7 @@ When we call `game.next("Yes").value`, the previous `yield` is replaced with the
 console.log(String.raw`Hello\nworld`);
 ```
 
-- A: `Hello world!`
-- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
-- C: `Hello\nworld`
-- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 `String.raw` returns a string where the escapes (`\n`, `\v`, `\t` etc.) are ignored! Backslashes can be an issue since you could end up with something like:
 
@@ -6824,6 +6739,8 @@ With `String.raw`, it would simply ignore the escape and print:
 `C:\Documents\Projects\table.html`
 
 In this case, the string is `Hello\nworld`, which gets logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6840,12 +6757,7 @@ const data = getData();
 console.log(data);
 ```
 
-- A: `"I made it!"`
-- B: `Promise {<resolved>: "I made it!"}`
-- C: `Promise {<pending>}`
-- D: `undefined`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
 
@@ -6853,7 +6765,9 @@ If we wanted to get access to the resolved value `"I made it"`, we could have us
 
 `data.then(res => console.log(res))`
 
-This would've logged `"I made it!"`
+This would\'ve logged `"I made it!"`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6870,16 +6784,13 @@ const result = addToList("apple", ["banana"]);
 console.log(result);
 ```
 
-- A: `['apple', 'banana']`
-- B: `2`
-- C: `true`
-- D: `undefined`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
 
 The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6898,18 +6809,15 @@ shape.x = 100;
 console.log(shape);
 ```
 
-- A: `{ x: 100, y: 20 }`
-- B: `{ x: 10, y: 20 }`
-- C: `{ x: 100 }`
-- D: `ReferenceError`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 `Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property\'s value is another object).
 
 When we create the variable `shape` and set it equal to the frozen object `box`, `shape` also refers to a frozen object. You can check whether an object is frozen by using `Object.isFrozen`. In this case, `Object.isFrozen(shape)` returns true, since the variable `shape` has a reference to a frozen object.
 
 Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6923,12 +6831,7 @@ const { name: myName } = { name: "Lydia" };
 console.log(name);
 ```
 
-- A: `"Lydia"`
-- B: `"myName"`
-- C: `undefined`
-- D: `ReferenceError`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
 
@@ -6936,26 +6839,7 @@ With `{ name: myName }`, we tell JavaScript that we want to create a new variabl
 
 Since we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Is this a pure function?
-
-```javascript
-function sum(a, b) {
-  return a + b;
-}
-```
-
-- A: Yes
-- B: No
-
-**Answer: A**
-
-A pure function is a function that _always_ returns the same result, if the same arguments are passed.
-
-The `sum` function always returns the same result. If we pass `1` and `2`, it will _always_ return `3` without side effects. If we pass `5` and `10`, it will _always_ return `15`, and so on. This is the definition of a pure function.
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -6983,12 +6867,7 @@ console.log(addFunction(10));
 console.log(addFunction(5 * 2));
 ```
 
-- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
-- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
-- C: `Calculated! 20` `From cache! 20` `From cache! 20`
-- D: `Calculated! 20` `From cache! 20` `Error`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 The `add` function is a _memoized_ function. With memoization, we can cache the results of a function in order to speed up its execution. In this case, we create a `cache` object that stores the previously returned values.
 
@@ -7000,38 +6879,7 @@ The second time, the `cache` object contains the value that gets returned for `1
 
 The third time, we pass `5 * 2` to the function which gets evaluated to `10`. The `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, and `'From cache! 20'` gets logged.
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
-
-for (let item in myLifeSummedUp) {
-  console.log(item);
-}
-
-for (let item of myLifeSummedUp) {
-  console.log(item);
-}
-```
-
-- A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
-- C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
-
-**Answer: A**
-
-With a _for-in_ loop, we can iterate over **enumerable** properties. In an array, the enumerable properties are the "keys" of array elements, which are actually their indexes. You could see an array as:
-
-`{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
-
-Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
-
-With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it\'s currently iterating over, `"☕"` ` "💻"` `"🍷"` `"🍫"` get logged.
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7044,16 +6892,13 @@ const list = [1 + 2, 1 * 2, 1 / 2];
 console.log(list);
 ```
 
-- A: `["1 + 2", "1 * 2", "1 / 2"]`
-- B: `["12", 2, 0.5]`
-- C: `[3, 2, 0.5]`
-- D: `[1, 1, 1]`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
 
 The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7069,12 +6914,7 @@ function sayHi(name) {
 console.log(sayHi());
 ```
 
-- A: `Hi there, `
-- B: `Hi there, undefined`
-- C: `Hi there, null`
-- D: `ReferenceError`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn\'t pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
 
@@ -7084,40 +6924,7 @@ In ES6, we can overwrite this default `undefined` value with default parameters.
 
 In this case, if we didn\'t pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-var status = "😎";
-
-setTimeout(() => {
-  const status = "😍";
-
-  const data = {
-    status: "🥑",
-    getStatus() {
-      return this.status;
-    },
-  };
-
-  console.log(data.getStatus());
-  console.log(data.getStatus.call(this));
-}, 0);
-```
-
-- A: `"🥑"` and `"😍"`
-- B: `"🥑"` and `"😎"`
-- C: `"😍"` and `"😎"`
-- D: `"😎"` and `"😎"`
-
-**Answer: B**
-
-The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
-
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7137,12 +6944,7 @@ city = "Amsterdam";
 console.log(person);
 ```
 
-- A: `{ name: "Lydia", age: 21 }`
-- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
-- C: `{ name: "Lydia", age: 21, city: undefined }`
-- D: `"Amsterdam"`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`.
 
@@ -7151,6 +6953,8 @@ Note that we are _not_ referencing the `person` object itself! We simply set the
 Then, we set `city` equal to the string `"Amsterdam"`. This doesn\'t change the person object: there is no reference to that object.
 
 When logging the `person` object, the unmodified object gets returned.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7172,14 +6976,11 @@ function checkAge(age) {
 console.log(checkAge(21));
 ```
 
-- A: `"Sorry, you\'re too young."`
-- B: `"Yay! You\'re old enough!"`
-- C: `ReferenceError`
-- D: `undefined`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it\'s declared in, a ReferenceError gets thrown.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7193,14 +6994,11 @@ fetch("https://www.website.com/api/user/1")
   .then((res) => console.log(res));
 ```
 
-- A: The result of the `fetch` method.
-- B: The result of the second invocation of the `fetch` method.
-- C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined.
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7214,12 +7012,7 @@ function getName(name) {
 }
 ```
 
-- A: `!!name`
-- B: `name`
-- C: `new Boolean(name)`
-- D: `name.length`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
 
@@ -7228,6 +7021,8 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 `new Boolean(true)` returns an object wrapper, not the boolean value itself.
 
 `name.length` returns the length of the passed argument, not whether it\'s `true`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7239,16 +7034,13 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 console.log("I want pizza"[0]);
 ```
 
-- A: `"""`
-- B: `"I"`
-- C: `SyntaxError`
-- D: `undefined`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 In order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case we want to get the element which index is 0, the character `"I'`, which gets logged.
 
 Note that this method is not supported in IE7 and below. In that case, use `.charAt()`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7264,16 +7056,13 @@ function sum(num1, num2 = num1) {
 sum(10);
 ```
 
-- A: `NaN`
-- B: `20`
-- C: `ReferenceError`
-- D: `undefined`
+<details><summary><b>Answer<b></summary>
 
-**Answer: B**
-
-You can set a default parameter\'s value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.
+You can set a default parameter\'s value equal to another parameter of the function, as long as they\'ve been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.
 
 If you\'re trying to set a default parameter\'s value equal to a parameter which is defined _after_ (to the right), the parameter\'s value hasn\'t been initialized yet, which will throw an error.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7292,16 +7081,13 @@ import * as data from "./module";
 console.log(data);
 ```
 
-- A: `{ default: function default(), name: "Lydia" }`
-- B: `{ default: function default() }`
-- C: `{ default: "Hello world", name: "Lydia" }`
-- D: Global object of `module.js`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`.
 
 The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7320,12 +7106,7 @@ const member = new Person("John");
 console.log(typeof member);
 ```
 
-- A: `"class"`
-- B: `"function"`
-- C: `"object"`
-- D: `"string"`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
@@ -7336,6 +7117,8 @@ function Person() {
 ```
 
 Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7349,16 +7132,13 @@ let newList = [1, 2, 3].push(4);
 console.log(newList.push(5));
 ```
 
-- A: `[1, 2, 3, 4, 5]`
-- B: `[1, 2, 3, 5]`
-- C: `[1, 2, 3, 4]`
-- D: `Error`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`.
 
 Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7378,14 +7158,11 @@ console.log(giveLydiaPizza.prototype);
 console.log(giveLydiaChocolate.prototype);
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}`
-- B: `{}` `{ constructor: ...}`
-- C: `{ constructor: ...}` `{}`
-- D: `{ constructor: ...}` `undefined`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7404,12 +7181,7 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]`
-- C: `["name", "age"]` and `undefined`
-- D: `Error`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 `Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
 
@@ -7419,6 +7191,8 @@ Using the `for-of` loop, we can iterate over each element in the array, the suba
 
 The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
 The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7434,12 +7208,7 @@ function getItems(fruitList, ...args, favoriteFruit) {
 getItems(["banana", "apple"], "pear", "orange")
 ```
 
-- A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]`
-- C: `["banana", "apple", ["pear"], "orange"]`
-- D: `SyntaxError`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 `...args` is a rest parameter. The rest parameter\'s value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error.
 
@@ -7452,6 +7221,8 @@ getItems(["banana", "apple"], "pear", "orange");
 ```
 
 The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7471,12 +7242,7 @@ console.log(nums(4, 2));
 console.log(nums(1, 2));
 ```
 
-- A: `a is bigger`, `6` and `b is bigger`, `3`
-- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
-- C: `undefined` and `undefined`
-- D: `SyntaxError`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 In JavaScript, we don\'t _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc.
 
@@ -7488,6 +7254,8 @@ a + b;
 ```
 
 This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7512,14 +7280,11 @@ const member = new Person();
 console.log(member.name);
 ```
 
-- A: `"Lydia"`
-- B: `"Sarah"`
-- C: `Error: cannot redeclare Person`
-- D: `SyntaxError`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7536,16 +7301,13 @@ console.log(info);
 console.log(Object.keys(info));
 ```
 
-- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
-- B: `{}` and `[]`
-- C: `{ a: "b" }` and `["a"]`
-- D: `{Symbol('a'): 'b'}` and `[]`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won\'t be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
 
 This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7564,12 +7326,7 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `undefined`
-- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
-- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
-- D: `Error` and `{ name: "Lydia", age: 21 }`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
 
@@ -7583,6 +7340,8 @@ The `getUser` function receives an object. With arrow functions, we don\'t _have
 
 Since no value gets returned in this case, the function returns `undefined`.
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -7595,19 +7354,16 @@ const name = "Lydia";
 console.log(name());
 ```
 
-- A: `SyntaxError`
-- B: `ReferenceError`
-- C: `TypeError`
-- D: `undefined`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 The variable `name` holds the value of a string, which is not a function, thus cannot invoke.
 
 TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we\'re trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
 
-SyntaxErrors get thrown when you've written something that isn\'t valid JavaScript, for example when you've written the word `return` as `retrun`.
+SyntaxErrors get thrown when you\'ve written something that isn\'t valid JavaScript, for example when you\'ve written the word `return` as `retrun`.
 ReferenceErrors get thrown when JavaScript isn\'t able to find a reference to a value that you\'re trying to access.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7616,22 +7372,17 @@ ReferenceErrors get thrown when JavaScript isn\'t able to find a reference to a 
 ## Q. What is the value of output?
 
 ```javascript
-// 🎉✨ This is my 100th question! ✨🎉
-
 const output = `${[] && "Im"}possible!
 You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
-- A: `possible! You should see a therapist after so much JavaScript lol`
-- B: `Impossible! You should see a therapist after so much JavaScript lol`
-- C: `possible! You shouldn\'t see a therapist after so much JavaScript lol`
-- D: `Impossible! You shouldn\'t see a therapist after so much JavaScript lol`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 `[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
 
 `""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n\'t` doesn\'t get returned.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7647,12 +7398,7 @@ const three = [] || 0 || true;
 console.log(one, two, three);
 ```
 
-- A: `false` `null` `[]`
-- B: `null` `""` `true`
-- C: `{}` `""` `[]`
-- D: `null` `null` `true`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
 
@@ -7661,6 +7407,8 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 `(null || false || "")`: all operands are falsy values. This means that the past operand, `""` gets returned. `two` is equal to `""`.
 
 `([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7685,12 +7433,7 @@ firstFunction();
 secondFunction();
 ```
 
-- A: `I have resolved!`, `second` and `I have resolved!`, `second`
-- B: `second`, `I have resolved!` and `second`, `I have resolved!`
-- C: `I have resolved!`, `second` and `second`, `I have resolved!`
-- D: `second`, `I have resolved!` and `I have resolved!`, `second`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 With a promise, we basically say _I want to execute this function, but I'll put it aside for now while it\'s running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._
 
@@ -7701,6 +7444,8 @@ In the `firstFunction`, we (sort of) put the myPromise function aside while it w
 With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.
 
 This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7720,12 +7465,7 @@ for (let item of set) {
 }
 ```
 
-- A: `3`, `NaN`, `NaN`
-- B: `3`, `7`, `NaN`
-- C: `3`, `Lydia2`, `[Object object]2`
-- D: `"12"`, `Lydia2`, `[Object object]2`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.
 
@@ -7734,6 +7474,8 @@ The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
 However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`.
 
 `{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7745,16 +7487,13 @@ However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is 
 Promise.resolve(5);
 ```
 
-- A: `5`
-- B: `Promise {<pending>: 5}`
-- C: `Promise {<resolved>: 5}`
-- D: `Error`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
 
 In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7776,12 +7515,7 @@ const person = { name: "Lydia" };
 compareMembers(person);
 ```
 
-- A: `Not the same!`
-- B: `They are the same!`
-- C: `ReferenceError`
-- D: `SyntaxError`
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 Objects are passed by reference. When we check objects for strict equality (`===`), we\'re comparing their references.
 
@@ -7790,6 +7524,8 @@ We set the default value for `person2` equal to the `person` object, and passed 
 This means that both values have a reference to the same spot in memory, thus they are equal.
 
 The code block in the `else` statement gets run, and `They are the same!` gets logged.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7811,124 +7547,15 @@ const colors = ["pink", "red", "blue"];
 console.log(colorConfig.colors[1]);
 ```
 
-- A: `true`
-- B: `false`
-- C: `undefined`
-- D: `TypeError`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`).
 
 With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that\'s `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object.
+JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would\'ve used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object.
 
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is its value?
-
-```javascript
-console.log("❤️" === "❤️");
-```
-
-- A: `true`
-- B: `false`
-
-**Answer: A**
-
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we\'re comparing two equal strings to each other, which returns true.
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. Which of these methods modifies the original array?
-
-```javascript
-const emojis = ["✨", "🥑", "😍"];
-
-emojis.map((x) => x + "✨");
-emojis.filter((x) => x !== "🥑");
-emojis.find((x) => x !== "🥑");
-emojis.reduce((acc, cur) => acc + "✨");
-emojis.slice(1, 2, "✨");
-emojis.splice(1, 2, "✨");
-```
-
-- A: `All of them`
-- B: `map` `reduce` `slice` `splice`
-- C: `map` `slice` `splice`
-- D: `splice`
-
-**Answer: D**
-
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead.
-
-`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What is the output?
-
-```javascript
-const food = ["🍕", "🍫", "🥑", "🍔"];
-const info = { favoriteFood: food[0] };
-
-info.favoriteFood = "🍝";
-
-console.log(food);
-```
-
-- A: `['🍕', '🍫', '🥑', '🍔']`
-- B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
-- D: `ReferenceError`
-
-**Answer: A**
-
-We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference
-
-In JavaScript, primitive data types (everything that\'s not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you\'re interested in learning more)
-
-Then, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn\'t changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn\'t have a reference to the same spot in memory as the element on `food[0]`. When we log food, it\'s still the original array, `['🍕', '🍫', '🥑', '🍔']`.
-
-<div align="right">
-    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
-</div>
-
-## Q. What does this method do?
-
-```javascript
-JSON.parse();
-```
-
-- A: Parses JSON to a JavaScript value
-- B: Parses a JavaScript object to JSON
-- C: Parses any JavaScript value to JSON
-- D: Parses JSON to a JavaScript object only
-
-**Answer: A**
-
-With the `JSON.parse()` method, we can parse JSON string to a JavaScript value.
-
-```javascript
-// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonNumber = JSON.stringify(4); // '4'
-JSON.parse(jsonNumber); // 4
-
-// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
-JSON.parse(jsonArray); // [1, 2, 3]
-
-// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
-JSON.parse(jsonArray); // { name: 'Lydia' }
-```
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7947,18 +7574,13 @@ function getName() {
 getName();
 ```
 
-- A: Lydia
-- B: Sarah
-- C: `undefined`
-- D: `ReferenceError`
-
-**Answer: D**
+<details><summary><b>Answer<b></summary>
 
 Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we\'re trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'sarah'`.
 
 Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don\'t get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
-If we wouldn\'t have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`.
+If we wouldn\'t have declared the `name` variable within the `getName` function, the javascript engine would\'ve looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would\'ve logged `Lydia`.
 
 ```javascript
 let name = "Lydia";
@@ -7969,6 +7591,8 @@ function getName() {
 
 getName(); // Lydia
 ```
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -7992,12 +7616,7 @@ console.log(one.next().value);
 console.log(two.next().value);
 ```
 
-- A: `a` and `a`
-- B: `a` and `undefined`
-- C: `['a', 'b', 'c']` and `a`
-- D: `a` and `['a', 'b', 'c']`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 With the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).
 
@@ -8017,6 +7636,8 @@ console.log(two.next().value); // 'c'
 console.log(two.next().value); // undefined
 ```
 
+</details>
+
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
@@ -8027,14 +7648,11 @@ console.log(two.next().value); // undefined
 console.log(`${((x) => x)("I love")} to program`);
 ```
 
-- A: `I love to program`
-- B: `undefined to program`
-- C: `${(x => x)('I love') to program`
-- D: `TypeError`
-
-**Answer: A**
+<details><summary><b>Answer<b></summary>
 
 Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -8052,14 +7670,11 @@ let config = {
 config = null;
 ```
 
-- A: The `setInterval` callback won\'t be invoked
-- B: The `setInterval` callback gets invoked once
-- C: The `setInterval` callback will still be called every second
-- D: We never invoked `config.alert()`, config is `null`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. As long as there is a reference, the object won\'t get garbage collected. Since it\'s not garbage collected, the `setInterval` callback function will still get invoked every 1000ms (1s).
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -8081,17 +7696,14 @@ myMap.get(myFunc);
 myMap.get(() => "greeting");
 ```
 
-- A: 1
-- B: 2
-- C: 2 and 3
-- D: All of them
-
-**Answer: B**
+<details><summary><b>Answer<b></summary>
 
 When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`.
 
 1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
 3 is wrong, since we\'re creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -8117,18 +7729,15 @@ changeAgeAndName();
 console.log(person);
 ```
 
-- A: `{name: "Sarah", age: 22}`
-- B: `{name: "Sarah", age: 23}`
-- C: `{name: "Lydia", age: 22}`
-- D: `{name: "Lydia", age: 23}`
-
-**Answer: C**
+<details><summary><b>Answer<b></summary>
 
 Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object.
 
 First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
 
 Then, we invoke the `changeAgeAndName` function, however we don\'t pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it\'s a new object, it doesn\'t affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
+
+</details>
 
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
@@ -8137,9 +7746,9 @@ Then, we invoke the `changeAgeAndName` function, however we don\'t pass a parame
 ## Q. Predict the output
 
 ```js
-if(2 == true) // returns false
+if(2 == true) 
 
-if(2 == false) // returns false
+if(2 == false)
 ```
 
 <div align="right">
@@ -8158,11 +7767,6 @@ function find_max(nums) {
   }
  return max_num;
 }
-
-// a.) num = max_num
-// b.) max_num += 1
-// c.) max_num = num
-// d.) max_num += num
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-code-practice-xjw5n3)**
