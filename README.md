@@ -314,11 +314,13 @@ myCars("Maruti");
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write code for merge two JavaScript Object dynamically?
+## Q. Write a function to merge two JavaScript Object dynamically?
 
-**Example:** Let say you have two objects
+**Example:**
 
 ```js
+Input:
+
 const person = {
   name: "Tanvi",
   age: 28
@@ -329,18 +331,16 @@ const address = {
   addressLine2: "Some Location y",
   city: "Bangalore"
 };
-```
 
-Write merge function which will take two object and add all the own property of second object into first object.
+Output:
 
-```js
-merge(person , address); 
- 
-/* Now person should have 5 properties 
-name , age , addressLine1 , addressLine2 , city */
+// Now person should have 5 properties 
+name, age, addressLine1, addressLine2, city
 ```
 
 <details><summary><b>Answer<b></summary>
+
+Write merge function which will take two object and add all the own property of second object into first object.
 
 **Method 1: Using ES6, Object.assign method:**
 
@@ -376,6 +376,10 @@ console.log(mergeObject(person, address));
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-shallow-vs-deep-copy-ik5b7h?file=/src/index.js)**
 
 </details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Being told that an unsorted array contains (n - 1) of n consecutive numbers (where the bounds are defined), find the missing number in O(n) time?
 
