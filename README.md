@@ -47,6 +47,60 @@ console.log(sum(10)(20));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Write a function to get the difference between two arrays?
+
+**Example:**
+
+```js
+Input:
+var a1 = ['a', 'b'];
+var a2 = ['a', 'b', 'c', 'd'];
+
+Output:
+["c", "d"]
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+let arr1 = ['a', 'b'];
+let arr2 = ['a', 'b', 'c', 'd'];
+
+let difference = arr2.filter(x => !arr1.includes(x));
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to accept argument like `[array1].diff([array2]]);`
+
+**Example:**
+
+```js
+Input: [1,2,3,4,5,6].diff( [3,4,5] );
+Output: [1, 2, 6]
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+Array.prototype.diff = function(a) {
+  return this.filter(function(i) { return a.indexOf(i) < 0; });
+};
+
+const dif1 = [1,2,3,4,5,6].diff( [3,4,5] );  
+console.log(dif1); // => [1, 2, 6]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Validate file size and extension before file upload in JavaScript?
 
 <details><summary><b>Answer<b></summary>
@@ -54,7 +108,6 @@ console.log(sum(10)(20));
 ```html
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>JavaScript File Upload Example</title>
   <script type="text/javascript">
