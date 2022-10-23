@@ -2060,6 +2060,38 @@ myArray = [
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Predict the output of the following NodeJS code?
+
+```js
+console.log('A');
+
+setImmediate(()=>{console.log('setImmediate')});
+
+process.nextTick(()=>{console.log('nextTick')});
+
+setTimeout(()=>{
+  console.log('setTimeout');
+},0);
+
+console.log('C');
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+A
+C
+nextTick
+setTimeout
+setImmediate
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
