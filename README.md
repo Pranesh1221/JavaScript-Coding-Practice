@@ -2094,9 +2094,54 @@ setImmediate
 
 ## Q. Predict the output of the following JavaScript code?
 
-```javascript
-console.log(+"meow"); 
+```js
+async function something() {
+  console.log("1");
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("2");
+      resolve("done!");
+    }, 100);
+  });
+
+  await promise;
+
+  setTimeout(() => {
+    console.log("3");
+  }, 100);
+  console.log("4");
+}
+
+something();
+console.log("5");
 ```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+1
+5
+2
+4
+3
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JavaScript code?
+
+```javascript
+console.log(+"Hello"); 
+```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2108,12 +2153,20 @@ for (var i = 5; i > 0; i--) {
 console.log(result); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
 var a = 1.2;
 console.log(typeof a); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2135,11 +2188,19 @@ console.log(x);
 console.log(0.1 + 0.2 == 0.3); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
 console.log(1 + -"1" + 2); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2180,11 +2241,19 @@ f1();
 console.log("window.num: " + window.num); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
 console.log("(null + undefined): " + (null + undefined)); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2197,6 +2266,10 @@ console.log("value of a : " + a);
 console.log("value of b : " + b); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2206,6 +2279,10 @@ if (function f() {}) {
 }
 console.log(y); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2233,6 +2310,10 @@ if (1) {
 console.log(k); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2241,6 +2322,10 @@ console.log("(1 / 0): " + 1 / 0);
 console.log("(0 / 0): " + 0 / 0); 
 console.log("(0 / 1): " + 0 / 1); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2267,6 +2352,10 @@ console.log("MAX : " + Math.max(10, 2, NaN));
 console.log("MAX : " + Math.max()); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2277,6 +2366,10 @@ console.log("MAX : " + Math.max());
 console.log("a defined? " + (typeof a !== "undefined")); 
 console.log("b defined? " + (typeof b !== "undefined")); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2307,6 +2400,10 @@ console.log(0.1 + 0.2);
 console.log(0.1 + 0.2 == 0.3); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2322,6 +2419,10 @@ console.log(0.1 + 0.2 == 0.3);
 })();
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2334,6 +2435,10 @@ arr2.push(arr3);
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); 
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2360,6 +2465,10 @@ for (var i = 0; i < 5; i++) {
 }
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2372,6 +2481,10 @@ for (var i = 0; i < 5; i++) {
 }
 //Output:- 0, 1, 2, 3, 4
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2393,6 +2506,10 @@ console.log(false == "0");
 console.log(false === "0");
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2405,6 +2522,10 @@ a[c] = 456;
 console.log(a[b]); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2414,6 +2535,10 @@ console.log(
   })(10)
 );
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2443,6 +2568,10 @@ var stoleSecretIdentity = hero.getSecretIdentity;
 console.log(stoleSecretIdentity()); 
 console.log(hero.getSecretIdentity()); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2483,6 +2612,10 @@ obj.method(fn, 1);
 })();
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2494,6 +2627,10 @@ var girl = function () {
 girl();
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2501,11 +2638,19 @@ console.log(1 < 2 < 3);
 console.log(3 > 2 > 1); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
 console.log(typeof typeof 1); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2535,12 +2680,20 @@ console.log(x);
 var x; 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
 const arr = [1, 2];
 arr.push(3); 
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Predict the output of the following JavaScript code?
 
@@ -2562,6 +2715,10 @@ let sum = (a, b) => {
 console.log(sum(10, 20)); 
 ```
 
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```javascript
@@ -2575,6 +2732,10 @@ var searchValue = (value) => {
 
 console.log(searchValue("script"));
 ```
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
 
 ## Q. Write a program that prints the numbers from 1 to 15. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”?
 
