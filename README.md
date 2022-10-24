@@ -35,8 +35,8 @@ function sum(x, y) {
   }
 }
 
-console.log(sum(10,20));   
-console.log(sum(10)(20));  
+console.log(sum(10, 20));
+console.log(sum(10)(20));
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-1-ypmjhl?file=/src/index.js)**
@@ -75,23 +75,25 @@ let difference = arr2.filter(x => !arr1.includes(x));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
-## Q. Write a function to accept argument like `[array1].diff([array2]]);`
+## Q. Write a function to accept argument like `[array1].diff([array2]);`
 
 **Example:**
 
 ```js
-Input: [1,2,3,4,5,6].diff( [3,4,5] );
-Output: [1, 2, 6]
+Input: [1, 2, 3, 4, 5, 6].diff([3, 4, 5]);
+Output: [1, 2, 6];
 ```
 
 <details><summary><b>Answer<b></summary>
 
 ```js
-Array.prototype.diff = function(a) {
-  return this.filter(function(i) { return a.indexOf(i) < 0; });
+Array.prototype.diff = function (a) {
+  return this.filter(function (i) {
+    return a.indexOf(i) < 0;
+  });
 };
 
-const dif1 = [1,2,3,4,5,6].diff( [3,4,5] );  
+const dif1 = [1, 2, 3, 4, 5, 6].diff([3, 4, 5]);
 console.log(dif1); // => [1, 2, 6]
 ```
 
@@ -278,7 +280,7 @@ function reverseString(str) {
   }
   return stringRev;
 }
-console.log(reverseString("Hello")); 
+console.log(reverseString("Hello"));
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cp-reversestring-sgm1ip?file=/src/index.js)**
@@ -360,7 +362,6 @@ function mergeObject(toObj, fromObj) {
     for (var pro in fromObj) {
       // Assign only own properties not inherited properties
       if (fromObj.hasOwnProperty(pro)) {
-        // Assign property and value
         toObj[pro] = fromObj[pro];
       }
     }
@@ -398,16 +399,17 @@ Output:
 <details><summary><b>Answer<b></summary>
 
 ```js
+/**
+ *  Find theoretical sum of the consecutive numbers using a variation of Gauss Sum.
+ *  Formula: [(Max * (Max + 1)) / 2] - [(Min * (Min - 1)) / 2];
+ *  Max is the upper bound and Min is the lower bound
+ */
 function findMissingNumber(arrayOfIntegers, upperBound, lowerBound) {
   
   var sumOfIntegers = 0;
   for (var i = 0; i < arrayOfIntegers.length; i++) {
     sumOfIntegers += arrayOfIntegers[i];
   }
-
-  // Find theoretical sum of the consecutive numbers using a variation of Gauss Sum.
-  // Formula: [(Max * (Max + 1)) / 2] - [(Min * (Min - 1)) / 2];
-  // Max is the upper bound and Min is the lower bound
 
   upperLimitSum = (upperBound * (upperBound + 1)) / 2;
   lowerLimitSum = (lowerBound * (lowerBound - 1)) / 2;
@@ -549,9 +551,13 @@ function counter() {
   // return an object with several functions that allow you
   // to modify the private _counter variable
   return {
-    add: function(increment) { _counter += increment; },
-    retrieve: function() { return 'The counter is currently at: ' + _counter; }
-  }
+    add: function (increment) {
+      _counter += increment;
+    },
+    retrieve: function () {
+      return "The counter is currently at: " + _counter;
+    },
+  };
 }
 
 // error if we try to access the private variable like below
@@ -559,8 +565,8 @@ function counter() {
 
 // usage of our counter function
 var c = counter();
-c.add(5); 
-c.add(9); 
+c.add(5);
+c.add(9);
 
 // now we can access the private variable in the following way
 c.retrieve(); // => The counter is currently at: 14
@@ -621,11 +627,11 @@ Output: 63
 /**
  * function to return a random number 
  * between min and max range
- * 
- * */
+ */
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+
 randomInteger(1, 100); // returns a random integer from 1 to 100
 ```
 
@@ -778,10 +784,11 @@ console.log(check(objStr)); // It is an object of string
 You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order. Let us see the usage of reverse() method in an example,
 
 ```js
-let numbers = [1, 2, 5, 3, 4];
-numbers.sort((a, b) => b - a);
-numbers.reverse();
-console.log(numbers); // [1, 2, 3, 4 ,5]
+const fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+const reversed = fruits.reverse();
+console.log('reversed:', reversed);
+// expected output: "reversed:" Array ["Orange", "Mango", "Banana", "Apple"]
 ```
 
 </details>
@@ -836,7 +843,7 @@ You can write functions which loops through an array comparing each value with t
 var marks = [50, 20, 70, 60, 45, 30];
 
 function findMin(arr) {
-  var length = arr.length
+  var length = arr.length;
   var min = Infinity;
   while (length--) {
     if (arr[length] < min) {
@@ -847,7 +854,7 @@ function findMin(arr) {
 }
 
 function findMax(arr) {
-  var length = arr.length
+  var length = arr.length;
   var max = -Infinity;
   while (length--) {
     if (arr[length] > max) {
