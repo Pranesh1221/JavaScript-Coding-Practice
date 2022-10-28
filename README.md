@@ -2114,6 +2114,38 @@ const getObjectProperty = (object, path) => {
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Find the unique number in given array?
+
+**Example:**
+
+```js
+Input: [1, 1, 3, 2, 3]
+Output: 2
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+const arr = [1, 1, 3, 2, 3];
+const count = {};
+
+for (const element of arr) {
+  if (count[element]) {
+    count[element] += 1;
+  } else {
+    count[element] = 1;
+  }
+}
+
+console.log(count); // {1: 2, 2: 1, 3: 2}
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JS code?
 
 ```js
