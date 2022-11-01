@@ -2282,6 +2282,40 @@ setImmediate
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Predict the output of the following NodeJS code?
+
+```js
+console.log(1);
+
+setTimeout(() => { console.log("setTimeout")}, 0);
+
+console.log(2);
+
+new Promise((resolve, reject) => {
+   setTimeout(() => {
+     console.log("Promise");
+     resolve("done")}, 0);
+});
+
+console.log(3);
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+1
+2
+3
+setTimeout
+Promise
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JavaScript code?
 
 ```js
