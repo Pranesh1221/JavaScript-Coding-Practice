@@ -2149,6 +2149,28 @@ console.log(count); // {1: 2, 2: 1, 3: 2}
 ## Q. Predict the output of the following JS code?
 
 ```js
+const a = { msg: "Hi" };
+const b = a;
+b.msg = "Hello";
+
+console.log(a, b);
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+{ msg: 'Hello' } { msg: 'Hello' }
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Predict the output of the following JS code?
+
+```js
 let a = [1, 2, 3];
 let b = [4, 5, 6];
 
