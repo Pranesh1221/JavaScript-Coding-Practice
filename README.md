@@ -2146,6 +2146,45 @@ console.log(count); // {1: 2, 2: 1, 3: 2}
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. Improve the below function?
+
+```js
+var yourself = {
+  fibonacci: function (n) {
+    if (n === 0) {
+      return 0;
+    } else if (n === 1) {
+      return 1;
+    } else {
+      return this.fibonacci(n - 1) + this.fibonacci(n - 2);
+    }
+  },
+};
+
+console.log(yourself.fibonacci(2)); // 1
+console.log(yourself.fibonacci(10)); // 55
+```
+
+<details><summary><b>Answer<b></summary>
+
+```js
+var yourself = {
+  fibonacci: function (n) {
+    let arr = [0, 1];
+    for (let i = 2; i < n + 1; i++) {
+      arr.push(arr[i - 2] + arr[i - 1]);
+    }
+    return arr[n];
+  },
+};
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## Q. Predict the output of the following JS code?
 
 ```js
